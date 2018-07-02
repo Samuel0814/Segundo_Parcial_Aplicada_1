@@ -71,6 +71,9 @@
     <Compile Include="UI\Registro\Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -106,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Scripts\SegundoParcialDb.sql" />
+    <None Include="Resources\SARD-400x200.png" />
     <None Include="Resources\icons8_Create_32.png" />
     <None Include="Resources\icons8_Save_All_32.png" />
     <None Include="Resources\icons8_Delete_File_32.png" />
