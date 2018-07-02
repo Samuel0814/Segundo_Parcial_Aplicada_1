@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SegundoParcial.UI.Registro
 {
-    public partial class Registro : Form
+    public partial class RegistroMantenimiento : Form
     {
-        public Registro()
+        public RegistroMantenimiento()
         {
             InitializeComponent();
         }

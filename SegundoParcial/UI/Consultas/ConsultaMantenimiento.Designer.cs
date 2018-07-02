@@ -1,6 +1,6 @@
 ﻿namespace SegundoParcial.UI.Consultas
 {
-    partial class Consulta
+    partial class ConsultaMantenimiento
     {
         /// <summary>
         /// Required designer variable.

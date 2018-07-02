@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SegundoParcial.UI.Consultas
 {
-    public partial class Consulta : Form
+    public partial class ConsultaMantenimiento : Form
     {
-        public Consulta()
+        public ConsultaMantenimiento()
         {
             InitializeComponent();
         }
