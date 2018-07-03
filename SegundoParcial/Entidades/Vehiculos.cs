@@ -10,18 +10,23 @@ namespace SegundoParcial.Entidades
     {
         [Key]
         public int VehiculoID { get; set; }
-        public int CostoMantenimiento { get; set; }
 
-        public Vehiculos(int articuloID, int CantidadCotizada)
+        public string Descripcion { get; set; }
+
+        public int TotalMantenimiento { get; set; }
+
+        public Vehiculos(int articuloID, int CostoMantenimiento)
         {
-            this.VehiculoID = articuloID;
-            this.CostoMantenimiento = CostoMantenimiento;
+            this.VehiculoID = VehiculoID;
+            this.Descripcion = Descripcion;
+            this.TotalMantenimiento = CostoMantenimiento;
         }
 
         public Vehiculos()
         {
             this.VehiculoID = 0;
-            this.CostoMantenimiento = 0;
+            this.Descripcion = string.Empty;
+            this.TotalMantenimiento = 0;
         }
     }
 }

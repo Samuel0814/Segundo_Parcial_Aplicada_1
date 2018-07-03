@@ -51,12 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\MantenimientoBLL.cs" />
-    <Compile Include="BLL\ServiciosBLL.cs" />
     <Compile Include="BLL\VehiculosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="Entidades\Articulos.cs" />
+    <Compile Include="Entidades\EntradaArticulos.cs" />
     <Compile Include="Entidades\Mantenimiento.cs" />
     <Compile Include="Entidades\MantenimientoDetalle.cs" />
-    <Compile Include="Entidades\Servicios.cs" />
+    <Compile Include="Entidades\Talleres.cs" />
     <Compile Include="Entidades\Vehiculos.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

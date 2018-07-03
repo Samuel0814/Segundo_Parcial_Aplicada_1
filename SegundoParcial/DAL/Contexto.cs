@@ -11,11 +11,13 @@ namespace SegundoParcial.DAL
     {
         public DbSet<Vehiculos> Vehiculos { get; set; }
 
-        public DbSet<Servicios> servicios { get; set; }
+        public DbSet<Talleres> servicios { get; set; }
 
         public DbSet<Mantenimiento> Mantenimientos { get; set; }
 
-        public DbSet<MantenimientoDetalle> MantenimientoDetalles { get; set; }
+        public DbSet<Articulos>articulos  { get; set; }
+
+        public DbSet<EntradaArticulos> entradaArticulos { get; set; }
 
         public Contexto() : base("ConStr")
         {
