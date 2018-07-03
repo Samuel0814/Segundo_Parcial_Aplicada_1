@@ -50,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\MantenimientoBLL.cs" />
+    <Compile Include="BLL\Repositorio.cs" />
     <Compile Include="BLL\VehiculosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Articulos.cs" />
@@ -67,17 +69,65 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\ConsultaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaArticulos.Designer.cs">
+      <DependentUpon>ConsultaArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaEntradaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaEntradaArticulos.Designer.cs">
+      <DependentUpon>ConsultaEntradaArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Consultas\ConsultaMantenimiento.Designer.cs">
       <DependentUpon>ConsultaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaTalleres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaTalleres.Designer.cs">
+      <DependentUpon>ConsultaTalleres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaVehiculos.Designer.cs">
+      <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroArticulos.Designer.cs">
+      <DependentUpon>RegistroArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroEntradaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroEntradaArticulos.Designer.cs">
+      <DependentUpon>RegistroEntradaArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\RegistroMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Registro\RegistroMantenimiento.Designer.cs">
       <DependentUpon>RegistroMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroTalleres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroTalleres.Designer.cs">
+      <DependentUpon>RegistroTalleres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\RegistroVehiculos.Designer.cs">
+      <DependentUpon>RegistroVehiculos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
