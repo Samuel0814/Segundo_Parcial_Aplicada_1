@@ -14,13 +14,16 @@ namespace SegundoParcial.Entidades
 
         public DateTime Fecha { get; set; }
 
-        public float CantidadArticulo { get; set; }
+        public string NombreArticulo { get; set; }
+
+        public int CantidadArticulo { get; set; }
 
 
         public EntradaArticulos()
         {
             EntradaID = 0;
             Fecha = DateTime.Now;
+            NombreArticulo = string.Empty;
             CantidadArticulo = 0;
         }
     }

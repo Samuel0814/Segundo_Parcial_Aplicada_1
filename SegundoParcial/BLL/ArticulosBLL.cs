@@ -1,28 +1,29 @@
 ﻿using SegundoParcial.DAL;
+using SegundoParcial.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Windows.Forms;
 
-namespace SegundoParcial.Entidades
+namespace SegundoParcial.BLL
 {
-    public class MantenimientoBLL
+    public class ArticulosBLL
     {
-        public static bool Guardar(Mantenimiento mantenimiento)
+        
+        public static bool Guardar(Articulos articulo)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.Mantenimientos.Add(mantenimiento) != null)
+                if (contexto.articulos.Add(articulo) != null)
                 {
-                    contexto.SaveChanges(); 
+                    contexto.SaveChanges();
                     paso = true;
                 }
-                
                 contexto.Dispose();
             }
             catch (Exception)
@@ -32,20 +33,14 @@ namespace SegundoParcial.Entidades
             return paso;
         }
 
-        public static bool Modificar(Mantenimiento mantenimiento)
+        public static bool Modificar(Articulos articulo)
         {
             bool paso = false;
+            
             Contexto contexto = new Contexto();
             try
             {
-                foreach (var item in mantenimiento.Detalle)
-                {
-                    var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;
-                    contexto.Entry(item).State = estado;
-                }
-
-                contexto.Entry(mantenimiento).State = EntityState.Modified;
-
+                contexto.Entry(articulo).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -54,7 +49,7 @@ namespace SegundoParcial.Entidades
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Articulo no se ha modificado");
             }
             return paso;
         }
@@ -62,13 +57,13 @@ namespace SegundoParcial.Entidades
         public static bool Eliminar(int id)
         {
             bool paso = false;
-
+            
             Contexto contexto = new Contexto();
             try
             {
-                Mantenimiento mantenimiento = contexto.Mantenimientos.Find(id);
+                Articulos articulo = contexto.articulos.Find(id);
 
-                contexto.Mantenimientos.Remove(mantenimiento);
+                contexto.articulos.Remove(articulo);
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -78,53 +73,41 @@ namespace SegundoParcial.Entidades
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("No se encuentran articulos registrados"); 
             }
             return paso;
         }
 
-        public static Mantenimiento Buscar(int id)
+        public static Articulos Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Mantenimiento mantenimiento = new Mantenimiento();
+            Articulos articulo = new Articulos();
             try
             {
-                mantenimiento = contexto.Mantenimientos.Find(id);
-
-                mantenimiento.Detalle.Count();
-
-                foreach (var item in mantenimiento.Detalle)
-                {
-                    string s = item.Articulos.Descripcion;
-                }
-
+                articulo = contexto.articulos.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("No se encuentran articulos registrados");
             }
-            return mantenimiento;
+            return articulo;
         }
 
-        public static List<Mantenimiento> GetList(Expression<Func<Mantenimiento, bool>> expression)
+        public static List<Articulos> GetList(Expression<Func<Articulos, bool>> expression)
         {
-            List<Mantenimiento> Mantenimientos = new List<Mantenimiento>();
+            List<Articulos> articulos = new List<Articulos>();
             Contexto contexto = new Contexto();
             try
             {
-                Mantenimientos = contexto.Mantenimientos.Where(expression).ToList();
+                articulos = contexto.articulos.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("No se encuentran articulos registrados");
             }
-
-            return Mantenimientos;
+            return articulos;
         }
     }
 }

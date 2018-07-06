@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace SegundoParcial.Entidades
+namespace SegundoParcial.DAL
 {
     public interface IRepository<T> where T : class
     {

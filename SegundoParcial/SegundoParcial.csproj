@@ -50,11 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\IRepository.cs" />
-    <Compile Include="BLL\MantenimientoBLL.cs" />
-    <Compile Include="BLL\Repositorio.cs" />
+    <Compile Include="BLL\ArticulosBLL.cs" />
+    <Compile Include="BLL\EntradaArticulosBLL.cs" />
+    <Compile Include="BLL\MantenimientosBLL.cs" />
+    <Compile Include="BLL\TalleresBLL.cs" />
     <Compile Include="BLL\VehiculosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Repositorio.cs" />
     <Compile Include="Entidades\Articulos.cs" />
     <Compile Include="Entidades\EntradaArticulos.cs" />
     <Compile Include="Entidades\Mantenimiento.cs" />
@@ -142,11 +145,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\ConsultaArticulos.resx">
+      <DependentUpon>ConsultaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaEntradaArticulos.resx">
+      <DependentUpon>ConsultaEntradaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\ConsultaMantenimiento.resx">
       <DependentUpon>ConsultaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaTalleres.resx">
+      <DependentUpon>ConsultaTalleres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaVehiculos.resx">
+      <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\RegistroArticulos.resx">
+      <DependentUpon>RegistroArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\RegistroEntradaArticulos.resx">
+      <DependentUpon>RegistroEntradaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\RegistroMantenimiento.resx">
       <DependentUpon>RegistroMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\RegistroTalleres.resx">
+      <DependentUpon>RegistroTalleres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\RegistroVehiculos.resx">
+      <DependentUpon>RegistroVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -165,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Scripts\SegundoParcialDb.sql" />
+    <None Include="Resources\icons8_Create_16.png" />
+    <None Include="Resources\icons8_Delete_32.png" />
+    <None Include="Resources\icons8_Add_New_32.png" />
     <None Include="Resources\SARD-400x200.png" />
     <None Include="Resources\icons8_Create_32.png" />
     <None Include="Resources\icons8_Save_All_32.png" />

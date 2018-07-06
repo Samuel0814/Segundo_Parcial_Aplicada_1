@@ -1,60 +1,40 @@
-﻿using SegundoParcial.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace SegundoParcial.Entidades
+namespace SegundoParcial.DAL
 {
-    public class Repositorio<T> : IDisposable, IRepository <T> where T : class
+    public class Repositorio<T> : IDisposable, IRepository<T> where T : class
     {
+        
         internal Contexto _contexto;
 
+        
         public Repositorio(Contexto contexto)
         {
             _contexto = contexto;
         }
 
-        public bool Guardar(T entity)
+        
+        public virtual T Buscar(int id)
         {
-            bool paso = false;
+            T entity;
             try
             {
-                if (_contexto.Set<T>().Add(entity) != null)
-                {
-                    _contexto.SaveChanges();
-                    paso = true;
-                }
+                entity = _contexto.Set<T>().Find(id);
                 _contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return paso;
+            return entity;
         }
 
-        public virtual bool Modificar(T entity)
-        {
-            bool paso = false;
-            try
-            {
-                _contexto.Entry(entity).State = EntityState.Modified;
-                if (_contexto.SaveChanges() > 0)
-                {
-                    paso = true;
-                }
-                _contexto.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
+        
         public bool Eliminar(int id)
         {
             bool paso = false;
@@ -75,21 +55,7 @@ namespace SegundoParcial.Entidades
             return paso;
         }
 
-        public virtual T Buscar(int id)
-        {
-            T entity;
-            try
-            {
-                entity = _contexto.Set<T>().Find(id);
-                _contexto.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return entity;
-        }
-
+        
         public List<T> GetList(Expression<Func<T, bool>> expression)
         {
             List<T> Lista = new List<T>();
@@ -105,9 +71,50 @@ namespace SegundoParcial.Entidades
             return Lista;
         }
 
+        
+        public bool Guardar(T entity)
+        {
+            bool paso = false;
+            try
+            {
+                if (_contexto.Set<T>().Add(entity) != null)
+                {
+                    _contexto.SaveChanges();
+                    paso = true;
+                }
+                _contexto.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+
+        
+        public virtual bool Modificar(T entity)
+        {
+            bool paso = false;
+            try
+            {
+                _contexto.Entry(entity).State = EntityState.Modified;
+                if (_contexto.SaveChanges() > 0)
+                {
+                    paso = true;
+                }
+                _contexto.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+
         public void Dispose()
         {
             _contexto.Dispose();
         }
+
     }
 }

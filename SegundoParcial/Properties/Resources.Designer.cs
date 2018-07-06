@@ -63,9 +63,39 @@ namespace SegundoParcial.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Add_New_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Add_New_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Create_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Create_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Create_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Create_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Delete_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

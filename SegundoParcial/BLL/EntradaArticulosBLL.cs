@@ -10,37 +10,36 @@ using System.Windows.Forms;
 
 namespace SegundoParcial.BLL
 {
-    public class VehiculosBLL
+    public class EntradaArticulosBLL
     {
-        public static bool Guardar(Vehiculos vehiculos)
+        public static bool Guardar(EntradaArticulos Entrada)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.Vehiculos.Add(vehiculos) != null)
+                if (contexto.entradaArticulos.Add(Entrada) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
                 }
-
                 contexto.Dispose();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return paso;
         }
 
-        public static bool Modificar(Vehiculos vehiculos)
+        public static bool Modificar(EntradaArticulos Entrada)
         {
             bool paso = false;
+
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Entry(vehiculos).State = EntityState.Modified;
+                contexto.Entry(Entrada).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -49,7 +48,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return paso;
         }
@@ -61,9 +60,9 @@ namespace SegundoParcial.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Vehiculos vehiculos = contexto.Vehiculos.Find(id);
+                EntradaArticulos Entrada = contexto.entradaArticulos.Find(id);
 
-                contexto.Vehiculos.Remove(vehiculos);
+                contexto.entradaArticulos.Remove(Entrada);
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -73,45 +72,41 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return paso;
         }
 
-
-        public static Vehiculos Buscar(int id)
+        public static EntradaArticulos Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Vehiculos vehiculos = new Vehiculos();
+            EntradaArticulos Entrada = new EntradaArticulos();
             try
             {
-                vehiculos = contexto.Vehiculos.Find(id);
+                Entrada = contexto.entradaArticulos.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
-
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
-            return vehiculos;
+            return Entrada;
         }
 
-
-        public static List<Vehiculos> GetList(Expression<Func<Vehiculos, bool>> expression)
+        public static List<EntradaArticulos> GetList(Expression<Func<EntradaArticulos, bool>> expression)
         {
-            List<Vehiculos> vehiculos = new List<Vehiculos>();
+            List<EntradaArticulos> Entrada = new List<EntradaArticulos>();
             Contexto contexto = new Contexto();
             try
             {
-                vehiculos = contexto.Vehiculos.Where(expression).ToList();
+                Entrada = contexto.entradaArticulos.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados"); 
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
-            return vehiculos;
+            return Entrada;
         }
     }
 }

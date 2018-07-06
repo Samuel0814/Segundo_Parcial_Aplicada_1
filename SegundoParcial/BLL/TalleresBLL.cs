@@ -10,37 +10,36 @@ using System.Windows.Forms;
 
 namespace SegundoParcial.BLL
 {
-    public class VehiculosBLL
+    public class TalleresBLL
     {
-        public static bool Guardar(Vehiculos vehiculos)
+        public static bool Guardar(Talleres Taller)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.Vehiculos.Add(vehiculos) != null)
+                if (contexto.talleres.Add(Taller) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
                 }
-
                 contexto.Dispose();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                throw;
             }
             return paso;
         }
 
-        public static bool Modificar(Vehiculos vehiculos)
+        public static bool Modificar(Talleres Taller)
         {
             bool paso = false;
+
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Entry(vehiculos).State = EntityState.Modified;
+                contexto.Entry(Taller).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -49,7 +48,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                throw;
             }
             return paso;
         }
@@ -61,9 +60,9 @@ namespace SegundoParcial.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Vehiculos vehiculos = contexto.Vehiculos.Find(id);
+                Talleres Taller = contexto.talleres.Find(id);
 
-                contexto.Vehiculos.Remove(vehiculos);
+                contexto.talleres.Remove(Taller);
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -73,45 +72,41 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                throw;
             }
             return paso;
         }
 
-
-        public static Vehiculos Buscar(int id)
+        public static Talleres Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Vehiculos vehiculos = new Vehiculos();
+            Talleres Taller = new Talleres();
             try
             {
-                vehiculos = contexto.Vehiculos.Find(id);
+                Taller = contexto.talleres.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
-
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No encuentran talleres registrados");
             }
-            return vehiculos;
+            return Taller;
         }
 
-
-        public static List<Vehiculos> GetList(Expression<Func<Vehiculos, bool>> expression)
+        public static List<Talleres> GetList(Expression<Func<Talleres, bool>> expression)
         {
-            List<Vehiculos> vehiculos = new List<Vehiculos>();
+            List<Talleres> Taller = new List<Talleres>();
             Contexto contexto = new Contexto();
             try
             {
-                vehiculos = contexto.Vehiculos.Where(expression).ToList();
+                Taller = contexto.talleres.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados"); 
+                MessageBox.Show("No encuentran talleres registrados"); 
             }
-            return vehiculos;
+            return Taller;
         }
     }
 }

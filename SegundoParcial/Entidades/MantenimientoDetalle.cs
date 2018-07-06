@@ -12,13 +12,9 @@ namespace SegundoParcial.Entidades
         [Key]
         public int ID { get; set; }
 
-        public int MantenimientoID { get; set; }
-
-        public int VehiculosID { get; set; }
-
-        public int TalleresID { get; set; }
-
         public int ArticulosID { get; set; }
+
+        public string NombreArticulo { get; set; }
 
         public float Cantidad { get; set; }
 
@@ -26,41 +22,26 @@ namespace SegundoParcial.Entidades
 
         public float Importe { get; set; }
 
-        [ForeignKey("VehiculosID")]
-        public virtual Vehiculos Vehiculos { get; set; }
-
-        [ForeignKey("TallerID")]
-        public virtual Talleres Talleres { get; set; }
-
+        
         [ForeignKey("ArticulosID")]
         public virtual Articulos Articulos { get; set; }
 
         public MantenimientoDetalle()
         {
-            this.ID = 0;
-            this.MantenimientoID = 0;
-            this.VehiculosID = 0;
-            this.TalleresID = 0;
             this.ArticulosID = 0;
+            this.NombreArticulo = string.Empty;
             this.Cantidad = 0;
             this.Precio = 0;
             this.Importe = 0;
         }
 
-        public MantenimientoDetalle(int Id, int VehiculoId, int TallerId, int ArticuloId, float cantidad, float precio, float importe)
+        public MantenimientoDetalle( int ArticuloId, string nombreArticulo, float cantidad, float precio, float importe)
         {
-            ID = Id;
-            VehiculosID = VehiculoId;
-            TalleresID = TallerId;
             ArticulosID = ArticuloId;
+            NombreArticulo = nombreArticulo;
             Cantidad = cantidad;
             Precio = precio;
             Importe = importe;
-        }
-
-        public override string ToString()
-        {
-            return "Vehiculos: " + this.VehiculosID.ToString() + ":Cantidad " + this.Cantidad;
         }
     }
 }

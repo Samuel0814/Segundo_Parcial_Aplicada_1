@@ -15,7 +15,8 @@ namespace SegundoParcial.Entidades
 
         public Talleres()
         {
-
+            TalleresID = 0;
+            Nombre = String.Empty;
         }
         
     }

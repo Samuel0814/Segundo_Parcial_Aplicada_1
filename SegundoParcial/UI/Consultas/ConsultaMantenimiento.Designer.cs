@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CriteriotextBox = new System.Windows.Forms.TextBox();
+            this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
+            this.Criteriolabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.ConsultadataGridView = new System.Windows.Forms.DataGridView();
             this.Imprimirbutton = new System.Windows.Forms.Button();
             this.Buscatbutton = new System.Windows.Forms.Button();
-            this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
-            this.CriteriotextBox = new System.Windows.Forms.TextBox();
-            this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).BeginInit();
@@ -51,13 +51,39 @@
             // 
             this.groupBox1.Controls.Add(this.CriteriotextBox);
             this.groupBox1.Controls.Add(this.FiltrocomboBox);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.Criteriolabel);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(52, 29);
+            this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 46);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // CriteriotextBox
+            // 
+            this.CriteriotextBox.Location = new System.Drawing.Point(278, 17);
+            this.CriteriotextBox.Name = "CriteriotextBox";
+            this.CriteriotextBox.Size = new System.Drawing.Size(327, 20);
+            this.CriteriotextBox.TabIndex = 3;
+            this.CriteriotextBox.TextChanged += new System.EventHandler(this.CriteriotextBox_TextChanged);
+            // 
+            // FiltrocomboBox
+            // 
+            this.FiltrocomboBox.FormattingEnabled = true;
+            this.FiltrocomboBox.Location = new System.Drawing.Point(60, 14);
+            this.FiltrocomboBox.Name = "FiltrocomboBox";
+            this.FiltrocomboBox.Size = new System.Drawing.Size(155, 21);
+            this.FiltrocomboBox.TabIndex = 2;
+            this.FiltrocomboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrocomboBox_SelectedIndexChanged);
+            // 
+            // Criteriolabel
+            // 
+            this.Criteriolabel.AutoSize = true;
+            this.Criteriolabel.Location = new System.Drawing.Point(233, 20);
+            this.Criteriolabel.Name = "Criteriolabel";
+            this.Criteriolabel.Size = new System.Drawing.Size(39, 13);
+            this.Criteriolabel.TabIndex = 1;
+            this.Criteriolabel.Text = "Criterio";
             // 
             // label1
             // 
@@ -67,15 +93,6 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Filtro";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Criterio";
             // 
             // label3
             // 
@@ -97,14 +114,23 @@
             this.panel1.Size = new System.Drawing.Size(402, 41);
             this.panel1.TabIndex = 4;
             // 
-            // label4
+            // HastadateTimePicker
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Desde";
+            this.HastadateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.HastadateTimePicker.Location = new System.Drawing.Point(238, 12);
+            this.HastadateTimePicker.Name = "HastadateTimePicker";
+            this.HastadateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.HastadateTimePicker.TabIndex = 3;
+            // 
+            // DesdedateTimePicker
+            // 
+            this.DesdedateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(60, 11);
+            this.DesdedateTimePicker.Name = "DesdedateTimePicker";
+            this.DesdedateTimePicker.Size = new System.Drawing.Size(131, 20);
+            this.DesdedateTimePicker.TabIndex = 2;
             // 
             // label5
             // 
@@ -115,12 +141,21 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Hasta";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Desde";
+            // 
             // ConsultadataGridView
             // 
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(52, 146);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 128);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
-            this.ConsultadataGridView.Size = new System.Drawing.Size(715, 244);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(755, 262);
             this.ConsultadataGridView.TabIndex = 5;
             // 
             // Imprimirbutton
@@ -139,48 +174,16 @@
             // 
             this.Buscatbutton.Image = global::SegundoParcial.Properties.Resources.icons8_Search_Property_32;
             this.Buscatbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscatbutton.Location = new System.Drawing.Point(692, 49);
+            this.Buscatbutton.Location = new System.Drawing.Point(669, 49);
             this.Buscatbutton.Name = "Buscatbutton";
             this.Buscatbutton.Size = new System.Drawing.Size(75, 58);
             this.Buscatbutton.TabIndex = 1;
             this.Buscatbutton.Text = "Buscar";
             this.Buscatbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscatbutton.UseVisualStyleBackColor = true;
+            this.Buscatbutton.Click += new System.EventHandler(this.Buscatbutton_Click);
             // 
-            // FiltrocomboBox
-            // 
-            this.FiltrocomboBox.FormattingEnabled = true;
-            this.FiltrocomboBox.Location = new System.Drawing.Point(60, 14);
-            this.FiltrocomboBox.Name = "FiltrocomboBox";
-            this.FiltrocomboBox.Size = new System.Drawing.Size(155, 21);
-            this.FiltrocomboBox.TabIndex = 2;
-            // 
-            // CriteriotextBox
-            // 
-            this.CriteriotextBox.Location = new System.Drawing.Point(278, 17);
-            this.CriteriotextBox.Name = "CriteriotextBox";
-            this.CriteriotextBox.Size = new System.Drawing.Size(327, 20);
-            this.CriteriotextBox.TabIndex = 3;
-            // 
-            // DesdedateTimePicker
-            // 
-            this.DesdedateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DesdedateTimePicker.Location = new System.Drawing.Point(60, 11);
-            this.DesdedateTimePicker.Name = "DesdedateTimePicker";
-            this.DesdedateTimePicker.Size = new System.Drawing.Size(131, 20);
-            this.DesdedateTimePicker.TabIndex = 2;
-            // 
-            // HastadateTimePicker
-            // 
-            this.HastadateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(238, 12);
-            this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(148, 20);
-            this.HastadateTimePicker.TabIndex = 3;
-            // 
-            // Consulta
+            // ConsultaMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,8 +194,8 @@
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.Buscatbutton);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Consulta";
-            this.Text = "Consulta";
+            this.Name = "ConsultaMantenimiento";
+            this.Text = "Consulta de Mantenimientos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -206,7 +209,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Criteriolabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Buscatbutton;
         private System.Windows.Forms.Button Imprimirbutton;

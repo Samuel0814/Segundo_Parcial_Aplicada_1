@@ -11,9 +11,11 @@ namespace SegundoParcial.DAL
     {
         public DbSet<Vehiculos> Vehiculos { get; set; }
 
-        public DbSet<Talleres> servicios { get; set; }
+        public DbSet<Talleres> talleres { get; set; }
 
         public DbSet<Mantenimiento> Mantenimientos { get; set; }
+
+        public DbSet<MantenimientoDetalle> mantenimientoDetalles { get; set; }
 
         public DbSet<Articulos>articulos  { get; set; }
 
@@ -21,6 +23,11 @@ namespace SegundoParcial.DAL
 
         public Contexto() : base("ConStr")
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
