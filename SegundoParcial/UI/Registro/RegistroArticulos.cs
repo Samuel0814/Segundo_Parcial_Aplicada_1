@@ -32,7 +32,10 @@ namespace SegundoParcial.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+
+            
             var articulo = BLL.ArticulosBLL.Buscar(Convert.ToInt32(ArticuloIdnumericUpDown.Value));
+            
             if (articulo != null)
             {
                 DescripciontextBox.Text = articulo.Descripcion;
@@ -40,6 +43,7 @@ namespace SegundoParcial.UI.Registro
                 PrecionumericUpDown.Text = articulo.Precio.ToString();
                 GanancianumericUpDown.Text = articulo.PorcientoGanancia.ToString();
                 InventariotextBox.Text = articulo.Inventario.ToString();
+                  
             }
             else
             {
@@ -154,6 +158,12 @@ namespace SegundoParcial.UI.Registro
             {
                 PrecionumericUpDown.Value = CostonumericUpDown.Value + GanancianumericUpDown.Value;
             }
+        }
+
+        
+        private void InventariotextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
         

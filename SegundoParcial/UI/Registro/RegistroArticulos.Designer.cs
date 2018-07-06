@@ -183,8 +183,10 @@
             // 
             this.InventariotextBox.Location = new System.Drawing.Point(263, 171);
             this.InventariotextBox.Name = "InventariotextBox";
+            this.InventariotextBox.ReadOnly = true;
             this.InventariotextBox.Size = new System.Drawing.Size(100, 20);
             this.InventariotextBox.TabIndex = 52;
+            this.InventariotextBox.TextChanged += new System.EventHandler(this.InventariotextBox_TextChanged);
             // 
             // MyerrorProvider
             // 

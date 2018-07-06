@@ -19,6 +19,12 @@ namespace SegundoParcial.UI.Registro
         {
             InitializeComponent();
             LlenarComboBox();
+            Fecha();
+        }
+
+        private void Fecha ()
+        {
+            ProximoMantenimientodateTimePicker.Value = FechadateTimePicker.Value.AddMonths(3);
         }
 
         private void LlenarCampos(Mantenimiento mantenimiento)
@@ -97,7 +103,6 @@ namespace SegundoParcial.UI.Registro
         private void Total()
         {
             List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
-
 
             float Total = 0;
 
@@ -260,7 +265,14 @@ namespace SegundoParcial.UI.Registro
             mantenimientos = LlenaClase();
 
             if (IdnumericUpDown.Value == 0)
+            {
+
                 Paso = BLL.MantenimientosBLL.Guardar(mantenimientos);
+                Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
+                a.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                BLL.VehiculosBLL.Modificar(a);
+
+            }
             else
                 Paso = BLL.MantenimientosBLL.Modificar(mantenimientos);
 
@@ -308,20 +320,17 @@ namespace SegundoParcial.UI.Registro
 
         private void FechadateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (ProximoMantenimientodateTimePicker.Value.Date == FechadateTimePicker.Value.Date
-                && FechadateTimePicker.Value.Date == ProximoMantenimientodateTimePicker.Value.Date)
-            {
-                ProximoMantenimientodateTimePicker.Value = ProximoMantenimientodateTimePicker.Value.AddDays(90);
-            }
+            Fecha();
         }
 
         private void IdnumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (ProximoMantenimientodateTimePicker.Value.Date == FechadateTimePicker.Value.Date
-                && FechadateTimePicker.Value.Date == ProximoMantenimientodateTimePicker.Value.Date)
-            {
-                ProximoMantenimientodateTimePicker.Value = ProximoMantenimientodateTimePicker.Value.AddDays(90);
-            }
+            
+        }
+
+        private void TotalnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

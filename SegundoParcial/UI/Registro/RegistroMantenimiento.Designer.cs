@@ -56,11 +56,6 @@
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.DetalledataGridView = new System.Windows.Forms.DataGridView();
-            this.ImportenumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ItbisnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.SubTotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.TotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.NombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArticulosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +63,11 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImportenumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ItbisnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.SubTotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.TotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -350,6 +350,51 @@
             this.DetalledataGridView.Size = new System.Drawing.Size(450, 139);
             this.DetalledataGridView.TabIndex = 58;
             // 
+            // NombreArticulo
+            // 
+            this.NombreArticulo.DataPropertyName = "nombreArticulo";
+            this.NombreArticulo.HeaderText = "NombreArticulo";
+            this.NombreArticulo.Name = "NombreArticulo";
+            // 
+            // ArticulosID
+            // 
+            this.ArticulosID.DataPropertyName = "ArticulosId";
+            this.ArticulosID.HeaderText = "ArticuloID";
+            this.ArticulosID.Name = "ArticulosID";
+            this.ArticulosID.Visible = false;
+            // 
+            // Articulos
+            // 
+            this.Articulos.DataPropertyName = "articulos";
+            this.Articulos.HeaderText = "Articulos";
+            this.Articulos.Name = "Articulos";
+            this.Articulos.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Importe
+            // 
+            this.Importe.DataPropertyName = "importe";
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            // 
             // ImportenumericUpDown
             // 
             this.ImportenumericUpDown.Location = new System.Drawing.Point(219, 225);
@@ -409,51 +454,7 @@
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
             this.TotalnumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.TotalnumericUpDown.TabIndex = 63;
-            // 
-            // NombreArticulo
-            // 
-            this.NombreArticulo.DataPropertyName = "nombreArticulo";
-            this.NombreArticulo.HeaderText = "NombreArticulo";
-            this.NombreArticulo.Name = "NombreArticulo";
-            // 
-            // ArticulosID
-            // 
-            this.ArticulosID.DataPropertyName = "ArticulosId";
-            this.ArticulosID.HeaderText = "ArticuloID";
-            this.ArticulosID.Name = "ArticulosID";
-            this.ArticulosID.Visible = false;
-            // 
-            // Articulos
-            // 
-            this.Articulos.DataPropertyName = "articulos";
-            this.Articulos.HeaderText = "Articulos";
-            this.Articulos.Name = "Articulos";
-            this.Articulos.Visible = false;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "importe";
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
+            this.TotalnumericUpDown.ValueChanged += new System.EventHandler(this.TotalnumericUpDown_ValueChanged);
             // 
             // RegistroMantenimiento
             // 

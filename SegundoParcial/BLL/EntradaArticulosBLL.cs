@@ -93,6 +93,8 @@ namespace SegundoParcial.BLL
             return Entrada;
         }
 
+
+
         public static List<EntradaArticulos> GetList(Expression<Func<EntradaArticulos, bool>> expression)
         {
             List<EntradaArticulos> Entrada = new List<EntradaArticulos>();
@@ -108,5 +110,7 @@ namespace SegundoParcial.BLL
             }
             return Entrada;
         }
+
+        
     }
 }

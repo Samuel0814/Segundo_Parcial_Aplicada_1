@@ -52,5 +52,10 @@ namespace SegundoParcial.UI.Consultas
                 Criteriolabel.Visible = true;
             }
         }
+
+        private void ConsultaEntradaArticulos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

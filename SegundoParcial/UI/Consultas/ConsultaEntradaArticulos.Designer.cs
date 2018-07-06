@@ -39,7 +39,7 @@
             this.CriteriotextBox = new System.Windows.Forms.TextBox();
             this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
             this.Criteriolabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Filtrolabel = new System.Windows.Forms.Label();
             this.Imprimirbutton = new System.Windows.Forms.Button();
             this.Buscatbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).BeginInit();
@@ -116,7 +116,7 @@
             this.groupBox1.Controls.Add(this.CriteriotextBox);
             this.groupBox1.Controls.Add(this.FiltrocomboBox);
             this.groupBox1.Controls.Add(this.Criteriolabel);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Filtrolabel);
             this.groupBox1.Location = new System.Drawing.Point(23, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 46);
@@ -148,14 +148,14 @@
             this.Criteriolabel.TabIndex = 1;
             this.Criteriolabel.Text = "Criterio";
             // 
-            // label1
+            // Filtrolabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Filtro";
+            this.Filtrolabel.AutoSize = true;
+            this.Filtrolabel.Location = new System.Drawing.Point(7, 20);
+            this.Filtrolabel.Name = "Filtrolabel";
+            this.Filtrolabel.Size = new System.Drawing.Size(29, 13);
+            this.Filtrolabel.TabIndex = 0;
+            this.Filtrolabel.Text = "Filtro";
             // 
             // Imprimirbutton
             // 
@@ -195,6 +195,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ConsultaEntradaArticulos";
             this.Text = "Consulta de Entrada de Articulos";
+            this.Load += new System.EventHandler(this.ConsultaEntradaArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -220,6 +221,6 @@
         private System.Windows.Forms.TextBox CriteriotextBox;
         private System.Windows.Forms.ComboBox FiltrocomboBox;
         private System.Windows.Forms.Label Criteriolabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Filtrolabel;
     }
 }

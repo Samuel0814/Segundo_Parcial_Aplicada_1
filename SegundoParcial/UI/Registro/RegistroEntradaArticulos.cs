@@ -26,6 +26,7 @@ namespace SegundoParcial.UI.Registro
             ArticulocomboBox.DataSource = ArtRepositorio.GetList(c => true);
             ArticulocomboBox.ValueMember = "ArticulosId";
             ArticulocomboBox.DisplayMember = "Descripcion";
+       
         }
 
         private EntradaArticulos LlenaClase()
@@ -78,7 +79,13 @@ namespace SegundoParcial.UI.Registro
             entrada = LlenaClase();
 
             if (EntradaIdnumericUpDown.Value == 0)
+            {
+
                 Paso = BLL.EntradaArticulosBLL.Guardar(entrada);
+                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
+                a.Inventario += (float)CantidadnumericUpDown.Value;
+                BLL.ArticulosBLL.Modificar(a);
+            }
             else
                 Paso = BLL.EntradaArticulosBLL.Modificar(entrada);
 
@@ -115,6 +122,16 @@ namespace SegundoParcial.UI.Registro
         }
 
         private void RegistroEntradaArticulos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ArticulocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
