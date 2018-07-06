@@ -57,5 +57,10 @@ namespace SegundoParcial.UI.Consultas
                 Criteriolabel.Visible = true;
             }
         }
+
+        private void ConsultaMantenimiento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

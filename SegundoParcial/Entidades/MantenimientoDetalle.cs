@@ -14,6 +14,10 @@ namespace SegundoParcial.Entidades
 
         public int ArticulosID { get; set; }
 
+        public int VehiculosId { get; set; }
+
+        public int TalleresId { get; set; }
+
         public string NombreArticulo { get; set; }
 
         public float Cantidad { get; set; }
@@ -22,9 +26,14 @@ namespace SegundoParcial.Entidades
 
         public float Importe { get; set; }
 
+        public float SubTotal { get; set; }
+
+        public float Itbis { get; set; }
+
         
         [ForeignKey("ArticulosID")]
         public virtual Articulos Articulos { get; set; }
+
 
         public MantenimientoDetalle()
         {

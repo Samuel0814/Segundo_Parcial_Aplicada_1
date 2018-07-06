@@ -15,12 +15,6 @@ namespace SegundoParcial.Entidades
 
         public DateTime ProximoMantenimiento { get; set; }
 
-        public int SubTotal { get; set; }
-
-        public int Itbis { get; set; }
-
-        public int Total { get; set; }
-
         public virtual ICollection<MantenimientoDetalle> Detalle { get; set; }
 
         public Mantenimiento()
@@ -28,9 +22,9 @@ namespace SegundoParcial.Entidades
             this.Detalle = new List<MantenimientoDetalle>();
         }
 
-        public void AgregarDetalle( int ArticuloID, string NombreArticulo, float Cantidad, float Precio, float Importe)
+        public void AgregarDetalle( int ArticuloID, string nombreArticulo, float Cantidad, float Precio, float Importe)
         {
-            this.Detalle.Add(new MantenimientoDetalle( ArticuloID, NombreArticulo, Cantidad, Precio, Importe));
+            this.Detalle.Add(new MantenimientoDetalle( ArticuloID, nombreArticulo, Cantidad, Precio, Importe));
         }
     }
 }

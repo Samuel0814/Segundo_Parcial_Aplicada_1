@@ -29,6 +29,7 @@ namespace SegundoParcial.UI.Registro
 
             DetalledataGridView.DataSource = mantenimiento.Detalle;
 
+           
         }
 
         private int ToInt(object valor)
