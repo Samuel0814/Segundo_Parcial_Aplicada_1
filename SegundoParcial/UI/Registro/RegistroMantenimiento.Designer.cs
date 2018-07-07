@@ -85,7 +85,7 @@
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 30;
             this.label1.Text = "MantenimientoID";
             // 
             // label2
@@ -94,7 +94,7 @@
             this.label2.Location = new System.Drawing.Point(12, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 28;
             this.label2.Text = "Fecha";
             // 
             // IdnumericUpDown
@@ -102,7 +102,7 @@
             this.IdnumericUpDown.Location = new System.Drawing.Point(117, 23);
             this.IdnumericUpDown.Name = "IdnumericUpDown";
             this.IdnumericUpDown.Size = new System.Drawing.Size(164, 20);
-            this.IdnumericUpDown.TabIndex = 6;
+            this.IdnumericUpDown.TabIndex = 0;
             this.IdnumericUpDown.ValueChanged += new System.EventHandler(this.IdnumericUpDown_ValueChanged);
             // 
             // FechadateTimePicker
@@ -112,7 +112,7 @@
             this.FechadateTimePicker.Location = new System.Drawing.Point(70, 68);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(96, 20);
-            this.FechadateTimePicker.TabIndex = 7;
+            this.FechadateTimePicker.TabIndex = 2;
             this.FechadateTimePicker.ValueChanged += new System.EventHandler(this.FechadateTimePicker_ValueChanged);
             // 
             // label3
@@ -121,7 +121,7 @@
             this.label3.Location = new System.Drawing.Point(191, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 13);
-            this.label3.TabIndex = 8;
+            this.label3.TabIndex = 29;
             this.label3.Text = "Proximo Mantenimiento";
             // 
             // ProximoMantenimientodateTimePicker
@@ -131,7 +131,7 @@
             this.ProximoMantenimientodateTimePicker.Location = new System.Drawing.Point(315, 68);
             this.ProximoMantenimientodateTimePicker.Name = "ProximoMantenimientodateTimePicker";
             this.ProximoMantenimientodateTimePicker.Size = new System.Drawing.Size(111, 20);
-            this.ProximoMantenimientodateTimePicker.TabIndex = 9;
+            this.ProximoMantenimientodateTimePicker.TabIndex = 3;
             this.ProximoMantenimientodateTimePicker.ValueChanged += new System.EventHandler(this.ProximoMantenimientodateTimePicker_ValueChanged);
             // 
             // label4
@@ -140,7 +140,7 @@
             this.label4.Location = new System.Drawing.Point(12, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 27;
             this.label4.Text = "Vehiculo";
             // 
             // label5
@@ -149,7 +149,7 @@
             this.label5.Location = new System.Drawing.Point(12, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 12;
+            this.label5.TabIndex = 26;
             this.label5.Text = "Taller";
             // 
             // label6
@@ -158,7 +158,7 @@
             this.label6.Location = new System.Drawing.Point(12, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 25;
             this.label6.Text = "Articulo";
             // 
             // label7
@@ -167,7 +167,7 @@
             this.label7.Location = new System.Drawing.Point(35, 208);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 15;
+            this.label7.TabIndex = 24;
             this.label7.Text = "Cantidad";
             // 
             // label8
@@ -176,7 +176,7 @@
             this.label8.Location = new System.Drawing.Point(140, 208);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 23;
             this.label8.Text = "Precio";
             // 
             // label9
@@ -185,7 +185,7 @@
             this.label9.Location = new System.Drawing.Point(239, 208);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
-            this.label9.TabIndex = 17;
+            this.label9.TabIndex = 22;
             this.label9.Text = "Importe";
             // 
             // label10
@@ -194,7 +194,7 @@
             this.label10.Location = new System.Drawing.Point(324, 477);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
-            this.label10.TabIndex = 25;
+            this.label10.TabIndex = 17;
             this.label10.Text = "Total";
             // 
             // label11
@@ -203,7 +203,7 @@
             this.label11.Location = new System.Drawing.Point(302, 449);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 52;
+            this.label11.TabIndex = 16;
             this.label11.Text = "ITBIS 18%";
             // 
             // label12
@@ -212,7 +212,7 @@
             this.label12.Location = new System.Drawing.Point(302, 423);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
-            this.label12.TabIndex = 53;
+            this.label12.TabIndex = 15;
             this.label12.Text = "Sub-Total";
             // 
             // VehiculocomboBox
@@ -221,7 +221,7 @@
             this.VehiculocomboBox.Location = new System.Drawing.Point(70, 103);
             this.VehiculocomboBox.Name = "VehiculocomboBox";
             this.VehiculocomboBox.Size = new System.Drawing.Size(356, 21);
-            this.VehiculocomboBox.TabIndex = 54;
+            this.VehiculocomboBox.TabIndex = 4;
             // 
             // TallercomboBox
             // 
@@ -229,7 +229,7 @@
             this.TallercomboBox.Location = new System.Drawing.Point(70, 137);
             this.TallercomboBox.Name = "TallercomboBox";
             this.TallercomboBox.Size = new System.Drawing.Size(356, 21);
-            this.TallercomboBox.TabIndex = 55;
+            this.TallercomboBox.TabIndex = 5;
             // 
             // ArticulocomboBox
             // 
@@ -237,7 +237,7 @@
             this.ArticulocomboBox.Location = new System.Drawing.Point(70, 179);
             this.ArticulocomboBox.Name = "ArticulocomboBox";
             this.ArticulocomboBox.Size = new System.Drawing.Size(245, 21);
-            this.ArticulocomboBox.TabIndex = 56;
+            this.ArticulocomboBox.TabIndex = 6;
             this.ArticulocomboBox.SelectedIndexChanged += new System.EventHandler(this.ArticulocomboBox_SelectedIndexChanged);
             // 
             // Removerbutton
@@ -247,7 +247,7 @@
             this.Removerbutton.Location = new System.Drawing.Point(341, 221);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(85, 35);
-            this.Removerbutton.TabIndex = 19;
+            this.Removerbutton.TabIndex = 11;
             this.Removerbutton.Text = "Remover";
             this.Removerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Removerbutton.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             this.Agregarbutton.Location = new System.Drawing.Point(341, 177);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(85, 38);
-            this.Agregarbutton.TabIndex = 18;
+            this.Agregarbutton.TabIndex = 10;
             this.Agregarbutton.Text = "Agregar";
             this.Agregarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Agregarbutton.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(183, 459);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(87, 48);
-            this.Eliminarbutton.TabIndex = 5;
+            this.Eliminarbutton.TabIndex = 14;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -285,7 +285,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(90, 459);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(87, 48);
-            this.Guardarbutton.TabIndex = 4;
+            this.Guardarbutton.TabIndex = 13;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(12, 459);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(72, 48);
-            this.Nuevobutton.TabIndex = 3;
+            this.Nuevobutton.TabIndex = 12;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -311,7 +311,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(341, 9);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(85, 45);
-            this.Buscarbutton.TabIndex = 2;
+            this.Buscarbutton.TabIndex = 1;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -331,7 +331,7 @@
             0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.CantidadnumericUpDown.TabIndex = 57;
+            this.CantidadnumericUpDown.TabIndex = 7;
             this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // DetalledataGridView
@@ -348,7 +348,7 @@
             this.DetalledataGridView.Location = new System.Drawing.Point(15, 262);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(450, 139);
-            this.DetalledataGridView.TabIndex = 58;
+            this.DetalledataGridView.TabIndex = 21;
             // 
             // NombreArticulo
             // 
@@ -405,7 +405,7 @@
             0});
             this.ImportenumericUpDown.Name = "ImportenumericUpDown";
             this.ImportenumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.ImportenumericUpDown.TabIndex = 59;
+            this.ImportenumericUpDown.TabIndex = 9;
             // 
             // PrecionumericUpDown
             // 
@@ -417,7 +417,7 @@
             0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.PrecionumericUpDown.TabIndex = 60;
+            this.PrecionumericUpDown.TabIndex = 8;
             // 
             // ItbisnumericUpDown
             // 
@@ -429,7 +429,7 @@
             0});
             this.ItbisnumericUpDown.Name = "ItbisnumericUpDown";
             this.ItbisnumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.ItbisnumericUpDown.TabIndex = 61;
+            this.ItbisnumericUpDown.TabIndex = 19;
             // 
             // SubTotalnumericUpDown
             // 
@@ -441,7 +441,7 @@
             0});
             this.SubTotalnumericUpDown.Name = "SubTotalnumericUpDown";
             this.SubTotalnumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.SubTotalnumericUpDown.TabIndex = 62;
+            this.SubTotalnumericUpDown.TabIndex = 18;
             // 
             // TotalnumericUpDown
             // 
@@ -453,7 +453,7 @@
             0});
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
             this.TotalnumericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.TotalnumericUpDown.TabIndex = 63;
+            this.TotalnumericUpDown.TabIndex = 20;
             this.TotalnumericUpDown.ValueChanged += new System.EventHandler(this.TotalnumericUpDown_ValueChanged);
             // 
             // RegistroMantenimiento

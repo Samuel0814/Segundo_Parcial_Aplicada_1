@@ -50,7 +50,7 @@
             this.DescripciontextBox.Multiline = true;
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(221, 66);
-            this.DescripciontextBox.TabIndex = 35;
+            this.DescripciontextBox.TabIndex = 2;
             // 
             // VehiculoIDnumericUpDown
             // 
@@ -62,7 +62,7 @@
             0});
             this.VehiculoIDnumericUpDown.Name = "VehiculoIDnumericUpDown";
             this.VehiculoIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.VehiculoIDnumericUpDown.TabIndex = 33;
+            this.VehiculoIDnumericUpDown.TabIndex = 0;
             // 
             // Eliminarbutton
             // 
@@ -71,7 +71,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(275, 202);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(84, 54);
-            this.Eliminarbutton.TabIndex = 41;
+            this.Eliminarbutton.TabIndex = 5;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(154, 202);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(94, 54);
-            this.Guardarbutton.TabIndex = 40;
+            this.Guardarbutton.TabIndex = 4;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(36, 202);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(90, 54);
-            this.Nuevobutton.TabIndex = 39;
+            this.Nuevobutton.TabIndex = 3;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(275, 14);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(84, 54);
-            this.Buscarbutton.TabIndex = 38;
+            this.Buscarbutton.TabIndex = 1;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             this.label3.Location = new System.Drawing.Point(33, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 44;
+            this.label3.TabIndex = 8;
             this.label3.Text = "Descripcion";
             // 
             // label2
@@ -131,7 +131,7 @@
             this.label2.Location = new System.Drawing.Point(33, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 13);
-            this.label2.TabIndex = 45;
+            this.label2.TabIndex = 7;
             this.label2.Text = "Total Mantenimiento";
             // 
             // label1
@@ -140,7 +140,7 @@
             this.label1.Location = new System.Drawing.Point(33, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 42;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Vehiculo ID";
             // 
             // TotalMantenimientotextBox
@@ -149,7 +149,7 @@
             this.TotalMantenimientotextBox.Name = "TotalMantenimientotextBox";
             this.TotalMantenimientotextBox.ReadOnly = true;
             this.TotalMantenimientotextBox.Size = new System.Drawing.Size(100, 20);
-            this.TotalMantenimientotextBox.TabIndex = 46;
+            this.TotalMantenimientotextBox.TabIndex = 6;
             // 
             // MyerrorProvider
             // 

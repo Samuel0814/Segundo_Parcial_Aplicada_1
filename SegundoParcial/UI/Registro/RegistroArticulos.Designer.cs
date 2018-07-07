@@ -59,7 +59,7 @@
             this.DescripciontextBox.Multiline = true;
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(282, 43);
-            this.DescripciontextBox.TabIndex = 35;
+            this.DescripciontextBox.TabIndex = 1;
             // 
             // label6
             // 
@@ -67,7 +67,7 @@
             this.label6.Location = new System.Drawing.Point(12, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 47;
+            this.label6.TabIndex = 12;
             this.label6.Text = "Precio";
             // 
             // label5
@@ -76,7 +76,7 @@
             this.label5.Location = new System.Drawing.Point(193, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 46;
+            this.label5.TabIndex = 13;
             this.label5.Text = "% Ganancia";
             // 
             // ArticuloIdnumericUpDown
@@ -89,7 +89,7 @@
             0});
             this.ArticuloIdnumericUpDown.Name = "ArticuloIdnumericUpDown";
             this.ArticuloIdnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.ArticuloIdnumericUpDown.TabIndex = 33;
+            this.ArticuloIdnumericUpDown.TabIndex = 0;
             // 
             // Eliminarbutton
             // 
@@ -98,7 +98,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(280, 215);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(83, 54);
-            this.Eliminarbutton.TabIndex = 41;
+            this.Eliminarbutton.TabIndex = 7;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(153, 215);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(83, 54);
-            this.Guardarbutton.TabIndex = 40;
+            this.Guardarbutton.TabIndex = 6;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(15, 215);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(83, 54);
-            this.Nuevobutton.TabIndex = 39;
+            this.Nuevobutton.TabIndex = 5;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(288, 12);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(75, 54);
-            this.Buscarbutton.TabIndex = 38;
+            this.Buscarbutton.TabIndex = 8;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.label3.Location = new System.Drawing.Point(12, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 44;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Descripcion";
             // 
             // label2
@@ -158,7 +158,7 @@
             this.label2.Location = new System.Drawing.Point(12, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 45;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Costo";
             // 
             // label1
@@ -167,7 +167,7 @@
             this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 42;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Articulo ID";
             // 
             // label4
@@ -176,7 +176,7 @@
             this.label4.Location = new System.Drawing.Point(203, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 51;
+            this.label4.TabIndex = 14;
             this.label4.Text = "Inventario";
             // 
             // InventariotextBox
@@ -185,7 +185,7 @@
             this.InventariotextBox.Name = "InventariotextBox";
             this.InventariotextBox.ReadOnly = true;
             this.InventariotextBox.Size = new System.Drawing.Size(100, 20);
-            this.InventariotextBox.TabIndex = 52;
+            this.InventariotextBox.TabIndex = 15;
             this.InventariotextBox.TextChanged += new System.EventHandler(this.InventariotextBox_TextChanged);
             // 
             // MyerrorProvider
@@ -202,7 +202,7 @@
             0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.Size = new System.Drawing.Size(100, 20);
-            this.PrecionumericUpDown.TabIndex = 53;
+            this.PrecionumericUpDown.TabIndex = 4;
             this.PrecionumericUpDown.ValueChanged += new System.EventHandler(this.PrecionumericUpDown_ValueChanged);
             // 
             // CostonumericUpDown
@@ -215,7 +215,7 @@
             0});
             this.CostonumericUpDown.Name = "CostonumericUpDown";
             this.CostonumericUpDown.Size = new System.Drawing.Size(100, 20);
-            this.CostonumericUpDown.TabIndex = 54;
+            this.CostonumericUpDown.TabIndex = 2;
             this.CostonumericUpDown.ValueChanged += new System.EventHandler(this.CostonumericUpDown_ValueChanged);
             // 
             // GanancianumericUpDown
@@ -228,7 +228,7 @@
             0});
             this.GanancianumericUpDown.Name = "GanancianumericUpDown";
             this.GanancianumericUpDown.Size = new System.Drawing.Size(100, 20);
-            this.GanancianumericUpDown.TabIndex = 55;
+            this.GanancianumericUpDown.TabIndex = 3;
             this.GanancianumericUpDown.ValueChanged += new System.EventHandler(this.GanancianumericUpDown_ValueChanged);
             // 
             // RegistroArticulos

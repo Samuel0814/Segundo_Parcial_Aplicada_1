@@ -35,6 +35,7 @@ namespace SegundoParcial.UI.Registro
 
             entrada.EntradaID = Convert.ToInt32(EntradaIdnumericUpDown.Value);
             entrada.Fecha = FechadateTimePicker.Value;
+            entrada.NombreArticulo = ArticulocomboBox.Text;
             entrada.CantidadArticulo = Convert.ToInt32(CantidadnumericUpDown.Value);
         
             return entrada;
