@@ -130,6 +130,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ConsultaVehiculos";
             this.Text = "Consulta de Vehiculos";
+            this.Load += new System.EventHandler(this.ConsultaVehiculos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

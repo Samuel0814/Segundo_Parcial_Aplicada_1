@@ -18,6 +18,16 @@ namespace SegundoParcial.UI.Consultas
             InitializeComponent();
         }
 
+        private void Llenar()
+        {
+
+            FiltrocomboBox.Items.Insert(0, "ID");
+            FiltrocomboBox.Items.Insert(1, "Descripcion");
+            FiltrocomboBox.Items.Insert(2, "TotalMantenimiento");
+            FiltrocomboBox.Items.Insert(3, "Todo");
+
+        }
+
         private void Buscatbutton_Click(object sender, EventArgs e)
         {
             Expression<Func<Vehiculos, bool>> filtro = a => true;
@@ -32,7 +42,11 @@ namespace SegundoParcial.UI.Consultas
                     filtro = a => a.Descripcion.Contains(CriteriotextBox.Text);
                     break;
                 case 2://Filtrando por Total Mantenimiento del Vehiculo.
-                    filtro = a => a.TotalMantenimiento.Equals(CriteriotextBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtro = a => a.TotalMantenimiento == id;
+                    break;
+                case 3: // Filtrando por todo
+                    Expression<Func<Vehiculos, bool>> filtro2 = a => true;
                     break;
             }
 
@@ -41,7 +55,7 @@ namespace SegundoParcial.UI.Consultas
 
         private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FiltrocomboBox.SelectedIndex == 1)
+            if (FiltrocomboBox.SelectedIndex == 3)
             {
                 CriteriotextBox.Visible = false;
                 Criteriolabel.Visible = false;
@@ -51,6 +65,11 @@ namespace SegundoParcial.UI.Consultas
                 CriteriotextBox.Visible = true;
                 Criteriolabel.Visible = true;
             }
+        }
+
+        private void ConsultaVehiculos_Load(object sender, EventArgs e)
+        {
+            Llenar();
         }
     }
 }

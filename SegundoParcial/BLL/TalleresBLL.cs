@@ -93,6 +93,7 @@ namespace SegundoParcial.BLL
             return Taller;
         }
 
+
         public static List<Talleres> GetList(Expression<Func<Talleres, bool>> expression)
         {
             List<Talleres> Taller = new List<Talleres>();

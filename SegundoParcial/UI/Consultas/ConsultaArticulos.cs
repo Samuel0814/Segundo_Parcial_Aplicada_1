@@ -18,6 +18,17 @@ namespace SegundoParcial.UI.Consultas
             InitializeComponent();
         }
 
+        private void Llenar()
+        {
+            FiltrocomboBox.Items.Insert(0, "ID");
+            FiltrocomboBox.Items.Insert(1, "Ganancia");
+            FiltrocomboBox.Items.Insert(2, "Nombre Articulo");
+            FiltrocomboBox.Items.Insert(3, "Precio");
+            FiltrocomboBox.Items.Insert(4, "Inventario:");
+            FiltrocomboBox.Items.Insert(5, "Costo");
+            FiltrocomboBox.Items.Insert(6, "Todo");
+        }
+
         private void ConsultadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -25,12 +36,12 @@ namespace SegundoParcial.UI.Consultas
 
         private void ConsultaArticulos_Load(object sender, EventArgs e)
         {
-
+            Llenar();
         }
 
         private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FiltrocomboBox.SelectedIndex == 1)
+            if (FiltrocomboBox.SelectedIndex == 6)
             {
                 CriteriotextBox.Visible = false;
                 Criteriolabel.Visible = false;
@@ -58,19 +69,26 @@ namespace SegundoParcial.UI.Consultas
                     filtro = a => a.ArticulosId == id;
                     break;
                 case 1://Filtrando por el % de ganancia del Artículo.
-                    filtro = a => a.PorcientoGanancia.Equals(CriteriotextBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtro = a => a.PorcientoGanancia == id;
                     break;
                 case 2://Filtrando por Descripcion del Artículo.
                     filtro = a => a.Descripcion.Contains(CriteriotextBox.Text);
                     break;
                 case 3://Filtrando por Precio del Artículo.
-                    filtro = a => a.Precio.Equals(CriteriotextBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtro = a => a.Precio == id;
                     break;
                 case 4://Filtrando por el Inventario del Artículo.
-                    filtro = a => a.Inventario.Equals(CriteriotextBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtro = a => a.Inventario== id ;
                     break;
                 case 5://Filtrando por el Costo del Artículo.
-                    filtro = a => a.Costo.Equals(CriteriotextBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtro = a => a.Costo == id;
+                    break;
+                case 6: //filtrando todos
+                    Expression<Func<Articulos, bool>> filtro2 = a => true;
                     break;
             }
 

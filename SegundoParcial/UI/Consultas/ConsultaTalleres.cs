@@ -18,6 +18,15 @@ namespace SegundoParcial.UI.Consultas
             InitializeComponent();
         }
 
+       private void Llenar()
+        {
+            
+            FiltrocomboBox.Items.Insert(0,"ID");
+            FiltrocomboBox.Items.Insert(1, "Nombre");
+            FiltrocomboBox.Items.Insert(2, "Todo");
+
+        }
+
         private void Buscatbutton_Click(object sender, EventArgs e)
         {
             Expression<Func<Talleres, bool>> filtro = a => true;
@@ -29,8 +38,12 @@ namespace SegundoParcial.UI.Consultas
                     filtro = a => a.TalleresID == id;
                     break;
                 
-                case 2://Filtrando por Descripcion del Artículo.
+                case 1://Filtrando por Descripcion del Artículo.
                     filtro = a => a.Nombre.Contains(CriteriotextBox.Text);
+                    break;
+
+                case 2://Filtrando por todo
+                    Expression<Func<Talleres, bool>> filtro2 = a => true;
                     break;
             }
 
@@ -39,16 +52,27 @@ namespace SegundoParcial.UI.Consultas
 
         private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FiltrocomboBox.SelectedIndex == 1)
+            if (FiltrocomboBox.SelectedIndex == 2)
             {
                 CriteriotextBox.Visible = false;
                 Criteriolabel.Visible = false;
+            }
+            else if (FiltrocomboBox.SelectedIndex == 0)
+            {
+                FiltrocomboBox.Text = "";
+                CriteriotextBox.Visible = true;
+                Criteriolabel.Visible = true;
             }
             else
             {
                 CriteriotextBox.Visible = true;
                 Criteriolabel.Visible = true;
             }
+        }
+
+        private void ConsultaTalleres_Load(object sender, EventArgs e)
+        {
+            Llenar();
         }
     }
 }
