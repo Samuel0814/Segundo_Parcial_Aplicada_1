@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.IdnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.MantenimientoIdnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.ProximoMantenimientodateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -56,19 +56,12 @@
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.DetalledataGridView = new System.Windows.Forms.DataGridView();
-            this.NombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArticulosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImportenumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ItbisnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.SubTotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.TotalnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
@@ -97,13 +90,13 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Fecha";
             // 
-            // IdnumericUpDown
+            // MantenimientoIdnumericUpDown
             // 
-            this.IdnumericUpDown.Location = new System.Drawing.Point(117, 23);
-            this.IdnumericUpDown.Name = "IdnumericUpDown";
-            this.IdnumericUpDown.Size = new System.Drawing.Size(164, 20);
-            this.IdnumericUpDown.TabIndex = 0;
-            this.IdnumericUpDown.ValueChanged += new System.EventHandler(this.IdnumericUpDown_ValueChanged);
+            this.MantenimientoIdnumericUpDown.Location = new System.Drawing.Point(117, 23);
+            this.MantenimientoIdnumericUpDown.Name = "MantenimientoIdnumericUpDown";
+            this.MantenimientoIdnumericUpDown.Size = new System.Drawing.Size(164, 20);
+            this.MantenimientoIdnumericUpDown.TabIndex = 0;
+            this.MantenimientoIdnumericUpDown.ValueChanged += new System.EventHandler(this.IdnumericUpDown_ValueChanged);
             // 
             // FechadateTimePicker
             // 
@@ -337,63 +330,10 @@
             // DetalledataGridView
             // 
             this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalledataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NombreArticulo,
-            this.ArticulosID,
-            this.Articulos,
-            this.ID,
-            this.Cantidad,
-            this.Precio,
-            this.Importe});
             this.DetalledataGridView.Location = new System.Drawing.Point(15, 262);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(450, 139);
             this.DetalledataGridView.TabIndex = 21;
-            // 
-            // NombreArticulo
-            // 
-            this.NombreArticulo.DataPropertyName = "nombreArticulo";
-            this.NombreArticulo.HeaderText = "NombreArticulo";
-            this.NombreArticulo.Name = "NombreArticulo";
-            // 
-            // ArticulosID
-            // 
-            this.ArticulosID.DataPropertyName = "ArticulosId";
-            this.ArticulosID.HeaderText = "ArticuloID";
-            this.ArticulosID.Name = "ArticulosID";
-            this.ArticulosID.Visible = false;
-            // 
-            // Articulos
-            // 
-            this.Articulos.DataPropertyName = "articulos";
-            this.Articulos.HeaderText = "Articulos";
-            this.Articulos.Name = "Articulos";
-            this.Articulos.Visible = false;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "importe";
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
             // 
             // ImportenumericUpDown
             // 
@@ -485,7 +425,7 @@
             this.Controls.Add(this.ProximoMantenimientodateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FechadateTimePicker);
-            this.Controls.Add(this.IdnumericUpDown);
+            this.Controls.Add(this.MantenimientoIdnumericUpDown);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -495,7 +435,7 @@
             this.Name = "RegistroMantenimiento";
             this.Text = "Registro de Mantenimiento";
             this.Load += new System.EventHandler(this.RegistroMantenimiento_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
@@ -517,7 +457,7 @@
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
-        private System.Windows.Forms.NumericUpDown IdnumericUpDown;
+        private System.Windows.Forms.NumericUpDown MantenimientoIdnumericUpDown;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker ProximoMantenimientodateTimePicker;
@@ -543,12 +483,5 @@
         private System.Windows.Forms.NumericUpDown ItbisnumericUpDown;
         private System.Windows.Forms.NumericUpDown PrecionumericUpDown;
         private System.Windows.Forms.NumericUpDown ImportenumericUpDown;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ArticulosID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Articulos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

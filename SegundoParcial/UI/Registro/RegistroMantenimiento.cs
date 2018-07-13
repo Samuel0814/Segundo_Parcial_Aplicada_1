@@ -29,9 +29,12 @@ namespace SegundoParcial.UI.Registro
 
         private void LlenarCampos(Mantenimiento mantenimiento)
         {
-            IdnumericUpDown.Value = mantenimiento.MantenimientoID;
+            MantenimientoIdnumericUpDown.Value = mantenimiento.MantenimientoID;
             FechadateTimePicker.Value = mantenimiento.Fecha;
             ProximoMantenimientodateTimePicker.Value = mantenimiento.ProximoMantenimiento;
+            SubTotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.SubTotal);
+            ItbisnumericUpDown.Value = Convert.ToInt32(mantenimiento.Itbis);
+            TotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.Total);
 
             DetalledataGridView.DataSource = mantenimiento.Detalle;
 
@@ -53,14 +56,18 @@ namespace SegundoParcial.UI.Registro
         {
             Mantenimiento mantenimiento = new Mantenimiento();
 
-            mantenimiento.MantenimientoID = Convert.ToInt32(IdnumericUpDown.Value);
+            mantenimiento.MantenimientoID = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
             mantenimiento.Fecha = FechadateTimePicker.Value;
             mantenimiento.ProximoMantenimiento = ProximoMantenimientodateTimePicker.Value;
 
             foreach (DataGridViewRow item in DetalledataGridView.Rows)
             {
                 mantenimiento.AgregarDetalle(
-                    ToInt(item.Cells["ArticulosId"].Value), "NombreArticulo",
+                    ToInt(item.Cells["id"].Value),
+                    ToInt(item.Cells["mantenimientoId"].Value),
+                    ToInt(item.Cells["vehiculoId"].Value),
+                    ToInt(item.Cells["talleresId"].Value),
+                    ToInt(item.Cells["ArticuloId"].Value), "NombreArticulo",
                     ToInt(item.Cells["Cantidad"].Value),
                     ToInt(item.Cells["Precio"].Value),
                     ToInt(item.Cells["Importe"].Value)
@@ -171,7 +178,7 @@ namespace SegundoParcial.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(IdnumericUpDown.Value);
+            int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
             Mantenimiento mantenimiento = BLL.MantenimientosBLL.Buscar(id);
 
             if (mantenimiento != null)
@@ -179,7 +186,7 @@ namespace SegundoParcial.UI.Registro
                 LlenarCampos(mantenimiento);
             }
             else
-                MessageBox.Show("No se encontro!", "Fallo",
+                MessageBox.Show("No encontrado!", "Fallo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -199,12 +206,15 @@ namespace SegundoParcial.UI.Registro
 
             detalle.Add(
                 new MantenimientoDetalle(
-
+                    id: 0,
+                    mantenimientoId: (int)MantenimientoIdnumericUpDown.Value,
                     ArticuloId: (int)ArticulocomboBox.SelectedValue,
+                    talleresId: (int)TallercomboBox.SelectedValue,
+                    vehiculoId: (int)VehiculocomboBox.SelectedValue,
                     nombreArticulo: ArticulocomboBox.Text,
-                    cantidad: (float)Convert.ToSingle(CantidadnumericUpDown.Value),
-                    precio: (float)Convert.ToSingle(PrecionumericUpDown.Text),
-                    importe: (float)Convert.ToSingle(ImportenumericUpDown.Text)
+                    cantidad: (float)Convert.ToInt32(CantidadnumericUpDown.Value),
+                    precio: (float)Convert.ToInt32(PrecionumericUpDown.Text),
+                    importe: (float)Convert.ToInt32(ImportenumericUpDown.Text)
                 ));
 
             
@@ -237,9 +247,8 @@ namespace SegundoParcial.UI.Registro
 
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
-            IdnumericUpDown.Value = 0;
+            MantenimientoIdnumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
-            ProximoMantenimientodateTimePicker.Value = DateTime.Now;
             PrecionumericUpDown.Value = 0;
             ImportenumericUpDown.Value = 0; ;
             TotalnumericUpDown.Value = 0;
@@ -264,7 +273,7 @@ namespace SegundoParcial.UI.Registro
 
             mantenimientos = LlenaClase();
 
-            if (IdnumericUpDown.Value == 0)
+            if (MantenimientoIdnumericUpDown.Value == 0)
             {
 
                 Paso = BLL.MantenimientosBLL.Guardar(mantenimientos);
@@ -274,8 +283,20 @@ namespace SegundoParcial.UI.Registro
 
             }
             else
+            {
                 Paso = BLL.MantenimientosBLL.Modificar(mantenimientos);
+                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
 
+                if (CantidadnumericUpDown.Value <= CantidadnumericUpDown.Value)
+                {
+                    a.Inventario += (float)CantidadnumericUpDown.Value;
+                }
+                else
+                {
+                    a.Inventario -= (float)CantidadnumericUpDown.Value;
+                }
+                BLL.ArticulosBLL.Modificar(a);
+            }
 
             if (Paso)
             {
@@ -290,10 +311,15 @@ namespace SegundoParcial.UI.Registro
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(IdnumericUpDown.Value);
+            int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
 
             if (BLL.MantenimientosBLL.Eliminar(id))
+            {
+                Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
+                a.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                BLL.VehiculosBLL.Modificar(a);
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
                 MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

@@ -14,6 +14,9 @@ namespace SegundoParcial.Entidades
 
         public DateTime Fecha { get; set; }
 
+       public int ArticulosId { get; set; }
+       
+
         public string NombreArticulo { get; set; }
 
         public int CantidadArticulo { get; set; }
@@ -23,6 +26,7 @@ namespace SegundoParcial.Entidades
         {
             EntradaID = 0;
             Fecha = DateTime.Now;
+            ArticulosId = 0;           
             NombreArticulo = string.Empty;
             CantidadArticulo = 0;
         }

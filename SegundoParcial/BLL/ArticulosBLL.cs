@@ -49,7 +49,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("Articulo no se ha modificado");
+                throw;
+                
             }
             return paso;
         }
@@ -89,7 +90,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran articulos registrados");
+                throw;
+                
             }
             return articulo;
         }
@@ -105,7 +107,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran articulos registrados");
+                throw;
+                
             }
             return articulos;
         }

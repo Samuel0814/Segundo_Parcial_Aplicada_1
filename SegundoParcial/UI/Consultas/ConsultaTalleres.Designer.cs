@@ -43,9 +43,9 @@
             // ConsultadataGridView
             // 
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(63, 82);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 76);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
-            this.ConsultadataGridView.Size = new System.Drawing.Size(715, 297);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(737, 302);
             this.ConsultadataGridView.TabIndex = 11;
             // 
             // groupBox1
@@ -54,11 +54,12 @@
             this.groupBox1.Controls.Add(this.FiltrocomboBox);
             this.groupBox1.Controls.Add(this.Criteriolabel);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(63, 18);
+            this.groupBox1.Location = new System.Drawing.Point(36, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 46);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // CriteriotextBox
             // 
@@ -98,7 +99,7 @@
             // 
             this.Imprimirbutton.Image = global::SegundoParcial.Properties.Resources.icons8_Print_32;
             this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimirbutton.Location = new System.Drawing.Point(23, 385);
+            this.Imprimirbutton.Location = new System.Drawing.Point(12, 385);
             this.Imprimirbutton.Name = "Imprimirbutton";
             this.Imprimirbutton.Size = new System.Drawing.Size(89, 48);
             this.Imprimirbutton.TabIndex = 8;
@@ -110,7 +111,7 @@
             // 
             this.Buscatbutton.Image = global::SegundoParcial.Properties.Resources.icons8_Search_Property_32;
             this.Buscatbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscatbutton.Location = new System.Drawing.Point(703, 18);
+            this.Buscatbutton.Location = new System.Drawing.Point(674, 12);
             this.Buscatbutton.Name = "Buscatbutton";
             this.Buscatbutton.Size = new System.Drawing.Size(75, 58);
             this.Buscatbutton.TabIndex = 7;
@@ -123,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(759, 443);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.Buscatbutton);

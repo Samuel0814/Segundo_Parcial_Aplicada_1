@@ -26,6 +26,7 @@ namespace SegundoParcial.UI.Registro
             articulo.Costo = Convert.ToSingle(CostonumericUpDown.Text);
             articulo.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
             articulo.PorcientoGanancia = Convert.ToSingle(GanancianumericUpDown.Text);
+            
 
             return articulo;
         }

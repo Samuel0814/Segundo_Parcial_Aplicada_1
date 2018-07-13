@@ -48,7 +48,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("No se encuentran talleres registrados");
             }
             return paso;
         }
@@ -72,7 +72,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("No se pudo eliminar");
             }
             return paso;
         }

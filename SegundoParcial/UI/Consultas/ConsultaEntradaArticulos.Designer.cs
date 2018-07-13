@@ -50,9 +50,9 @@
             // ConsultadataGridView
             // 
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(23, 130);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 111);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
-            this.ConsultadataGridView.Size = new System.Drawing.Size(755, 249);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(660, 255);
             this.ConsultadataGridView.TabIndex = 11;
             // 
             // panel1
@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.DesdedateTimePicker);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(225, 70);
+            this.panel1.Location = new System.Drawing.Point(173, 64);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(409, 41);
             this.panel1.TabIndex = 10;
@@ -105,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 87);
+            this.label3.Location = new System.Drawing.Point(19, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 9;
@@ -117,9 +117,9 @@
             this.groupBox1.Controls.Add(this.FiltrocomboBox);
             this.groupBox1.Controls.Add(this.Criteriolabel);
             this.groupBox1.Controls.Add(this.Filtrolabel);
-            this.groupBox1.Location = new System.Drawing.Point(23, 18);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 46);
+            this.groupBox1.Size = new System.Drawing.Size(570, 46);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -127,7 +127,7 @@
             // 
             this.CriteriotextBox.Location = new System.Drawing.Point(278, 17);
             this.CriteriotextBox.Name = "CriteriotextBox";
-            this.CriteriotextBox.Size = new System.Drawing.Size(327, 20);
+            this.CriteriotextBox.Size = new System.Drawing.Size(269, 20);
             this.CriteriotextBox.TabIndex = 3;
             // 
             // FiltrocomboBox
@@ -161,7 +161,7 @@
             // 
             this.Imprimirbutton.Image = global::SegundoParcial.Properties.Resources.icons8_Print_32;
             this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimirbutton.Location = new System.Drawing.Point(23, 385);
+            this.Imprimirbutton.Location = new System.Drawing.Point(12, 383);
             this.Imprimirbutton.Name = "Imprimirbutton";
             this.Imprimirbutton.Size = new System.Drawing.Size(89, 48);
             this.Imprimirbutton.TabIndex = 8;
@@ -173,7 +173,7 @@
             // 
             this.Buscatbutton.Image = global::SegundoParcial.Properties.Resources.icons8_Search_Property_32;
             this.Buscatbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscatbutton.Location = new System.Drawing.Point(677, 38);
+            this.Buscatbutton.Location = new System.Drawing.Point(597, 29);
             this.Buscatbutton.Name = "Buscatbutton";
             this.Buscatbutton.Size = new System.Drawing.Size(75, 58);
             this.Buscatbutton.TabIndex = 7;
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(715, 443);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);

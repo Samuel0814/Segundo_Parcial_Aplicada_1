@@ -18,6 +18,7 @@ namespace SegundoParcial.BLL
             Contexto contexto = new Contexto();
             try
             {
+
                 if (contexto.entradaArticulos.Add(Entrada) != null)
                 {
                     contexto.SaveChanges();
@@ -27,7 +28,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran entradas de articulos registradas");
+                throw;
+                //MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return paso;
         }
@@ -45,14 +47,16 @@ namespace SegundoParcial.BLL
                     paso = true;
                 }
                 contexto.Dispose();
+
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran entradas de articulos registradas");
+                throw;
+                //MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
+            ;
             return paso;
         }
-
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -88,7 +92,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran entradas de articulos registradas");
+                throw;
+                //MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return Entrada;
         }
@@ -106,7 +111,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran entradas de articulos registradas");
+                throw;
+                //MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return Entrada;
         }

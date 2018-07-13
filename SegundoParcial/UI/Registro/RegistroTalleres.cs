@@ -59,6 +59,7 @@ namespace SegundoParcial.UI.Registro
 
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
+            TallerIDnumericUpDown.Value = 0;
             NombretextBox.Clear();
             MyerrorProvider.Clear();
         }
