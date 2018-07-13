@@ -102,6 +102,12 @@
     <Compile Include="UI\Consultas\ConsultaVehiculos.Designer.cs">
       <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\VerDetalleMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\VerDetalleMantenimiento.Designer.cs">
+      <DependentUpon>VerDetalleMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\RegistroArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\ConsultaVehiculos.resx">
       <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\VerDetalleMantenimiento.resx">
+      <DependentUpon>VerDetalleMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\RegistroArticulos.resx">
       <DependentUpon>RegistroArticulos.cs</DependentUpon>

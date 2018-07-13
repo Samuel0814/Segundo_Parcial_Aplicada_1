@@ -35,10 +35,41 @@ namespace SegundoParcial.UI.Registro
             SubTotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.SubTotal);
             ItbisnumericUpDown.Value = Convert.ToInt32(mantenimiento.Itbis);
             TotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.Total);
+            //DataTable table = new DataTable();
+            //table.Columns.Add("Articulo");
+            //table.Columns.Add("Cantidad");
+            //table.Columns.Add("Precio");
+            //table.Columns.Add("Importe");
+            //foreach (var item in mantenimiento.Detalle)
+            //{
+            //    object[] tmp= new object[4];
+            //    tmp[0] = item.Articulos.Descripcion;
+            //    tmp[1] = item.Cantidad;
+            //    tmp[2] = item.Precio;
+            //    tmp[3] = item.Importe;
+            //    table.Rows.Add(tmp);
+            //}
 
-            DetalledataGridView.DataSource = mantenimiento.Detalle;
 
-           
+            DetalledataGridView.DataSource = mantenimiento.Detalle.ToList();
+            int c = 0;
+            foreach (var item in DetalledataGridView.Columns)
+            {
+                c++;
+
+            }
+            for (int i = 0; i < c; i++)
+            {
+                if (i > 8)
+                {
+                    DetalledataGridView.Columns[i].Visible = false;
+                }
+            }
+
+
+
+
+
         }
 
         private int ToInt(object valor)
@@ -59,15 +90,17 @@ namespace SegundoParcial.UI.Registro
             mantenimiento.MantenimientoID = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
             mantenimiento.Fecha = FechadateTimePicker.Value;
             mantenimiento.ProximoMantenimiento = ProximoMantenimientodateTimePicker.Value;
-
+            mantenimiento.Total =Convert.ToSingle( TotalnumericUpDown.Value);
+            mantenimiento.SubTotal = Convert.ToSingle(SubTotalnumericUpDown.Value);
+            mantenimiento.Itbis = Convert.ToSingle(ItbisnumericUpDown.Value);
             foreach (DataGridViewRow item in DetalledataGridView.Rows)
             {
                 mantenimiento.AgregarDetalle(
-                    ToInt(item.Cells["id"].Value),
-                    ToInt(item.Cells["mantenimientoId"].Value),
-                    ToInt(item.Cells["vehiculoId"].Value),
-                    ToInt(item.Cells["talleresId"].Value),
-                    ToInt(item.Cells["ArticuloId"].Value), "NombreArticulo",
+                    ToInt(item.Cells["ID"].Value),
+                    ToInt(item.Cells["MantenimientoId"].Value),
+                    ToInt(item.Cells["VehiculosId"].Value),
+                    ToInt(item.Cells["TalleresId"].Value),
+                    ToInt(item.Cells["ArticulosID"].Value), "NombreArticulo",
                     ToInt(item.Cells["Cantidad"].Value),
                     ToInt(item.Cells["Precio"].Value),
                     ToInt(item.Cells["Importe"].Value)
@@ -219,6 +252,8 @@ namespace SegundoParcial.UI.Registro
 
             
             DetalledataGridView.DataSource = null;
+           
+
             DetalledataGridView.DataSource = detalle;
 
             
@@ -261,6 +296,9 @@ namespace SegundoParcial.UI.Registro
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Mantenimiento mantenimientos;
+           
+           
+
             bool Paso = false;
 
             if (HayErrores())
@@ -277,25 +315,26 @@ namespace SegundoParcial.UI.Registro
             {
 
                 Paso = BLL.MantenimientosBLL.Guardar(mantenimientos);
-                Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
-                a.TotalMantenimiento += (int)TotalnumericUpDown.Value;
-                BLL.VehiculosBLL.Modificar(a);
+                Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
+                v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                BLL.VehiculosBLL.Modificar(v);
 
             }
             else
             {
                 Paso = BLL.MantenimientosBLL.Modificar(mantenimientos);
-                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
+                Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
 
-                if (CantidadnumericUpDown.Value <= CantidadnumericUpDown.Value)
+                if (TotalnumericUpDown.Value <= TotalnumericUpDown.Value)
                 {
-                    a.Inventario += (float)CantidadnumericUpDown.Value;
+                    v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
                 }
                 else
                 {
-                    a.Inventario -= (float)CantidadnumericUpDown.Value;
+                    v.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
                 }
-                BLL.ArticulosBLL.Modificar(a);
+                BLL.VehiculosBLL.Modificar(v);
+                ModificarCantidadInventario(mantenimientos);
             }
 
             if (Paso)
@@ -309,6 +348,26 @@ namespace SegundoParcial.UI.Registro
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void ModificarCantidadInventario(Mantenimiento mantenimiento)
+        { 
+
+            Contexto db = new Contexto();
+            float  sum = 0;
+            int sumTotal = 0;
+            var detalles = mantenimiento.Detalle.ToList();
+            
+            foreach (var item in detalles)
+            {
+                sum += item.Cantidad;
+                sumTotal+=Convert.ToInt32( item.Importe);
+
+            }
+            db.articulos.Find(detalles.First().ArticulosID).Inventario -= sum;
+            db.Vehiculos.Find(detalles.First().VehiculosId).TotalMantenimiento = int.Parse(sumTotal.ToString());
+            db.SaveChanges();
+
+        }
+
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
@@ -316,7 +375,7 @@ namespace SegundoParcial.UI.Registro
             if (BLL.MantenimientosBLL.Eliminar(id))
             {
                 Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
-                a.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                a.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
                 BLL.VehiculosBLL.Modificar(a);
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -326,11 +385,25 @@ namespace SegundoParcial.UI.Registro
 
         private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            MostrarPrecio();
+            Contexto db = new Contexto();
+            var articulo = db.articulos.Find(ArticulocomboBox.SelectedValue);
+
+            if (CantidadnumericUpDown.Value>decimal.Parse(articulo.Inventario.ToString()))
+            {
+                MessageBox.Show("la cantidad no debe exceder el inventario.");
+                CantidadnumericUpDown.Value = 0;
+            }
+            else
+            {
+                MostrarPrecio();
             if (CantidadnumericUpDown.Value != 0)
             {
                 ImportenumericUpDown.Value = CantidadnumericUpDown.Value * PrecionumericUpDown.Value;
             }
+
+            }
+            
+
         }
 
         private void ArticulocomboBox_SelectedIndexChanged(object sender, EventArgs e)

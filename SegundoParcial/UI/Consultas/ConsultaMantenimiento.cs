@@ -42,6 +42,7 @@ namespace SegundoParcial.UI.Consultas
             }
 
             ConsultadataGridView.DataSource = BLL.MantenimientosBLL.GetList(filtro);
+            ConsultadataGridView.Columns[6].Visible = false;
         }
 
         private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,6 +61,35 @@ namespace SegundoParcial.UI.Consultas
 
         private void ConsultaMantenimiento_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+           if( ConsultadataGridView.SelectedRows!=null)
+            {
+                int mantenimientoId =int.Parse( ConsultadataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                
+                new VerDetalleMantenimiento(mantenimientoId).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos selecionado, favor Seleccione una fila ante de continuar.");
+            }
+
+        }
+
+        private void ConsultadataGridView_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (ConsultadataGridView.DataSource==null)
+            {
+                Verbutton.Enabled = false;
+            }
+            else
+            {
+                Verbutton.Enabled = true;
+            }
 
         }
     }

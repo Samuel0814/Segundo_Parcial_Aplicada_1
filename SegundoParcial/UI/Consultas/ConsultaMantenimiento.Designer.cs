@@ -40,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ConsultadataGridView = new System.Windows.Forms.DataGridView();
+            this.Verbutton = new System.Windows.Forms.Button();
             this.Imprimirbutton = new System.Windows.Forms.Button();
             this.Buscatbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -152,11 +153,28 @@
             // 
             // ConsultadataGridView
             // 
+            this.ConsultadataGridView.AllowUserToAddRows = false;
+            this.ConsultadataGridView.AllowUserToDeleteRows = false;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 128);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 148);
+            this.ConsultadataGridView.MultiSelect = false;
             this.ConsultadataGridView.Name = "ConsultadataGridView";
-            this.ConsultadataGridView.Size = new System.Drawing.Size(755, 262);
+            this.ConsultadataGridView.ReadOnly = true;
+            this.ConsultadataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ConsultadataGridView.Size = new System.Drawing.Size(765, 242);
             this.ConsultadataGridView.TabIndex = 5;
+            this.ConsultadataGridView.DataSourceChanged += new System.EventHandler(this.ConsultadataGridView_DataSourceChanged);
+            // 
+            // Verbutton
+            // 
+            this.Verbutton.Enabled = false;
+            this.Verbutton.Location = new System.Drawing.Point(702, 119);
+            this.Verbutton.Name = "Verbutton";
+            this.Verbutton.Size = new System.Drawing.Size(75, 23);
+            this.Verbutton.TabIndex = 6;
+            this.Verbutton.Text = "Ver detalles";
+            this.Verbutton.UseVisualStyleBackColor = true;
+            this.Verbutton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Imprimirbutton
             // 
@@ -188,6 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Verbutton);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -223,5 +242,6 @@
         private System.Windows.Forms.ComboBox FiltrocomboBox;
         private System.Windows.Forms.DateTimePicker HastadateTimePicker;
         private System.Windows.Forms.DateTimePicker DesdedateTimePicker;
+        private System.Windows.Forms.Button Verbutton;
     }
 }
