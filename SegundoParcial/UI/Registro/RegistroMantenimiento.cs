@@ -368,7 +368,7 @@ namespace SegundoParcial.UI.Registro
 
         }
 
-        private void EliminarButton_Click(object sender, EventArgs e)
+        private void Eliminarbutton_Click_1(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
 
@@ -431,6 +431,8 @@ namespace SegundoParcial.UI.Registro
         {
 
         }
+
+        
     }
 }
         
