@@ -138,9 +138,9 @@ namespace SegundoParcial.UI.Registro
             {
                 Total += item.Importe;
             }
-            SubTotalnumericUpDown.Text = Total.ToString();
+            TotalnumericUpDown.Text = Total.ToString();
 
-            ItbisnumericUpDown.Value = SubTotalnumericUpDown.Value * IteB;
+            ItbisnumericUpDown.Value = TotalnumericUpDown.Value * IteB;
 
             SubTotalnumericUpDown.Value = TotalnumericUpDown.Value + ItbisnumericUpDown.Value;
 
@@ -164,16 +164,54 @@ namespace SegundoParcial.UI.Registro
 
             Total *= (-1);
 
-            SubTotalnumericUpDown.Text = Total.ToString();
+            TotalnumericUpDown.Text = Total.ToString();
 
-            ItbisnumericUpDown.Value = SubTotalnumericUpDown.Value * IteB;
+            ItbisnumericUpDown.Value = TotalnumericUpDown.Value * IteB;
 
-            TotalnumericUpDown.Value = SubTotalnumericUpDown.Value + ItbisnumericUpDown.Value;
+            SubTotalnumericUpDown.Value = SubTotalnumericUpDown.Value - ItbisnumericUpDown.Value;
 
 
             
 
         }
+
+        private bool HayErrores1()
+        {
+            bool HayErrores = false;
+
+            if (string.IsNullOrEmpty(VehiculocomboBox.Text))
+            {
+                MyerrorProvider.SetError(VehiculocomboBox,
+                    "Debes Tener registrado al menos un vehiculo registrado");
+                HayErrores = true;
+            }
+
+
+            if (string.IsNullOrEmpty(TallercomboBox.Text))
+            {
+                MyerrorProvider.SetError(TallercomboBox,
+                    "Debes Tener registrado al menos un taller registrado");
+                HayErrores = true;
+            }
+
+            if (string.IsNullOrEmpty(ArticulocomboBox.Text))
+            {
+                MyerrorProvider.SetError(ArticulocomboBox,
+                    "Debes Tener registrado al menos un articulo registrado");
+                HayErrores = true;
+            }
+
+
+            if (CantidadnumericUpDown.Value == 0)
+            {
+                MyerrorProvider.SetError(CantidadnumericUpDown,
+                    "Digite una cantidad");
+                HayErrores = true;
+            }
+
+            return HayErrores;
+        }
+
 
         private bool HayErrores()
         {
@@ -241,7 +279,7 @@ namespace SegundoParcial.UI.Registro
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
 
-            if (HayErrores())
+            if (HayErrores1())
             {
                 MessageBox.Show("Favor revisar todos los campos!!", "Validación!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

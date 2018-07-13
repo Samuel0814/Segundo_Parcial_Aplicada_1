@@ -267,6 +267,7 @@
             0,
             0});
             this.ImportenumericUpDown.Name = "ImportenumericUpDown";
+            this.ImportenumericUpDown.ReadOnly = true;
             this.ImportenumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.ImportenumericUpDown.TabIndex = 9;
             // 
@@ -279,6 +280,7 @@
             0,
             0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
+            this.PrecionumericUpDown.ReadOnly = true;
             this.PrecionumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.PrecionumericUpDown.TabIndex = 8;
             // 
@@ -291,6 +293,7 @@
             0,
             0});
             this.ItbisnumericUpDown.Name = "ItbisnumericUpDown";
+            this.ItbisnumericUpDown.ReadOnly = true;
             this.ItbisnumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.ItbisnumericUpDown.TabIndex = 19;
             // 
@@ -303,6 +306,7 @@
             0,
             0});
             this.SubTotalnumericUpDown.Name = "SubTotalnumericUpDown";
+            this.SubTotalnumericUpDown.ReadOnly = true;
             this.SubTotalnumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.SubTotalnumericUpDown.TabIndex = 18;
             // 
@@ -315,6 +319,7 @@
             0,
             0});
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
+            this.TotalnumericUpDown.ReadOnly = true;
             this.TotalnumericUpDown.Size = new System.Drawing.Size(96, 20);
             this.TotalnumericUpDown.TabIndex = 20;
             this.TotalnumericUpDown.ValueChanged += new System.EventHandler(this.TotalnumericUpDown_ValueChanged);
