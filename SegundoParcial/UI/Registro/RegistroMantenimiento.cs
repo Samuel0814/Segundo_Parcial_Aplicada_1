@@ -138,11 +138,11 @@ namespace SegundoParcial.UI.Registro
             {
                 Total += item.Importe;
             }
-            TotalnumericUpDown.Text = Total.ToString();
+            SubTotalnumericUpDown.Text = Total.ToString();
 
-            ItbisnumericUpDown.Value = TotalnumericUpDown.Value * IteB;
+            ItbisnumericUpDown.Value = SubTotalnumericUpDown.Value * IteB;
 
-            SubTotalnumericUpDown.Value = TotalnumericUpDown.Value - ItbisnumericUpDown.Value;
+            SubTotalnumericUpDown.Value = TotalnumericUpDown.Value + ItbisnumericUpDown.Value;
 
 
         }
@@ -164,11 +164,14 @@ namespace SegundoParcial.UI.Registro
 
             Total *= (-1);
 
-            TotalnumericUpDown.Text = Total.ToString();
+            SubTotalnumericUpDown.Text = Total.ToString();
 
-            ItbisnumericUpDown.Value = TotalnumericUpDown.Value * IteB;
+            ItbisnumericUpDown.Value = SubTotalnumericUpDown.Value * IteB;
 
-            SubTotalnumericUpDown.Value = TotalnumericUpDown.Value - ItbisnumericUpDown.Value;
+            TotalnumericUpDown.Value = SubTotalnumericUpDown.Value + ItbisnumericUpDown.Value;
+
+
+            
 
         }
 
