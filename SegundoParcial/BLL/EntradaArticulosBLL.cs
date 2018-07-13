@@ -28,8 +28,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
-                //MessageBox.Show("No se encuentran entradas de articulos registradas");
+             //   throw;
+                MessageBox.Show("Error al guardar");
             }
             return paso;
         }
@@ -51,8 +51,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
-                //MessageBox.Show("No se encuentran entradas de articulos registradas");
+                //throw;
+                MessageBox.Show("No se encuentran entradas de articulos registradas en el ID Seleccionado");
             }
             ;
             return paso;
@@ -76,7 +76,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran entradas de articulos registradas");
+                MessageBox.Show("No se encuentran entradas de articulos registradas en el ID seleccionado");
             }
             return paso;
         }
@@ -92,8 +92,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
-                //MessageBox.Show("No se encuentran entradas de articulos registradas");
+                
+                MessageBox.Show("No se encuentran entradas de articulos registradas en el ID seleccionado");
             }
             return Entrada;
         }
@@ -111,8 +111,8 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
-                //MessageBox.Show("No se encuentran entradas de articulos registradas");
+                
+                MessageBox.Show("No se encuentran entradas de articulos registradas");
             }
             return Entrada;
         }

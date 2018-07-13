@@ -158,12 +158,20 @@ namespace SegundoParcial.UI.Registro
         {
             bool HayErrores = false;
 
+            if (string.IsNullOrEmpty(ArticulocomboBox.Text))
+            {
+                MyerrorProvider.SetError(ArticulocomboBox,
+                    "Debes Tener registrado al menos un articulo registrado");
+                HayErrores = true;
+            }
+
             if (CantidadnumericUpDown.Value == 0)
             {
                 MyerrorProvider.SetError(EntradaIdnumericUpDown,
                     "Debes ingresar una cantidad mayor a 0");
                 HayErrores = true;
             }
+            
 
             return HayErrores;
         }

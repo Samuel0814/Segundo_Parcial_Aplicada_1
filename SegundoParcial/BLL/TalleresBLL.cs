@@ -27,7 +27,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Error al guardar");
             }
             return paso;
         }
@@ -48,7 +48,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran talleres registrados");
+                MessageBox.Show("Error al modificar No se encuentran talleres registrados en el ID ");
             }
             return paso;
         }
@@ -72,7 +72,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se pudo eliminar");
+                MessageBox.Show("Error al eliminar No se encuentran talleres registrados en el ID");
             }
             return paso;
         }
@@ -88,7 +88,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No encuentran talleres registrados");
+                MessageBox.Show("No encuentran talleres registrados en este ID");
             }
             return Taller;
         }

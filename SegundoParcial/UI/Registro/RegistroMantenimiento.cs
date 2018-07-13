@@ -35,20 +35,6 @@ namespace SegundoParcial.UI.Registro
             SubTotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.SubTotal);
             ItbisnumericUpDown.Value = Convert.ToInt32(mantenimiento.Itbis);
             TotalnumericUpDown.Value = Convert.ToInt32(mantenimiento.Total);
-            //DataTable table = new DataTable();
-            //table.Columns.Add("Articulo");
-            //table.Columns.Add("Cantidad");
-            //table.Columns.Add("Precio");
-            //table.Columns.Add("Importe");
-            //foreach (var item in mantenimiento.Detalle)
-            //{
-            //    object[] tmp= new object[4];
-            //    tmp[0] = item.Articulos.Descripcion;
-            //    tmp[1] = item.Cantidad;
-            //    tmp[2] = item.Precio;
-            //    tmp[3] = item.Importe;
-            //    table.Rows.Add(tmp);
-            //}
 
 
             DetalledataGridView.DataSource = mantenimiento.Detalle.ToList();
@@ -65,8 +51,6 @@ namespace SegundoParcial.UI.Registro
                     DetalledataGridView.Columns[i].Visible = false;
                 }
             }
-
-
 
 
 
@@ -199,6 +183,29 @@ namespace SegundoParcial.UI.Registro
                 HayErrores = true;
             }
 
+            if (string.IsNullOrEmpty(VehiculocomboBox.Text))
+            {
+                MyerrorProvider.SetError(VehiculocomboBox,
+                    "Debes Tener registrado al menos un vehiculo registrado");
+                HayErrores = true;
+            }
+
+
+            if (string.IsNullOrEmpty(TallercomboBox.Text))
+            {
+                MyerrorProvider.SetError(TallercomboBox,
+                    "Debes Tener registrado al menos un taller registrado");
+                HayErrores = true;
+            }
+
+            if (string.IsNullOrEmpty(ArticulocomboBox.Text))
+            {
+                MyerrorProvider.SetError(ArticulocomboBox,
+                    "Debes Tener registrado al menos un articulo registrado");
+                HayErrores = true;
+            }
+
+
             if (CantidadnumericUpDown.Value == 0)
             {
                 MyerrorProvider.SetError(CantidadnumericUpDown,
@@ -230,6 +237,14 @@ namespace SegundoParcial.UI.Registro
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
+
+            if (HayErrores())
+            {
+                MessageBox.Show("Favor revisar todos los campos!!", "Validación!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             List<MantenimientoDetalle> detalle = new List<MantenimientoDetalle>();
 
             if (DetalledataGridView.DataSource != null)

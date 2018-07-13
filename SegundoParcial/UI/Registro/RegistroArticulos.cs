@@ -83,13 +83,17 @@ namespace SegundoParcial.UI.Registro
             else
                 Paso = BLL.ArticulosBLL.Modificar(LlenaClase());
 
-            
+
             if (Paso)
+            {
                 MessageBox.Show("Guardado", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
+            {
                 MessageBox.Show("No se pudo guardar", "Falló",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -97,9 +101,13 @@ namespace SegundoParcial.UI.Registro
             int id = Convert.ToInt32(ArticuloIdnumericUpDown.Value);
 
             if (BLL.ArticulosBLL.Eliminar(id))
+            {
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
+            {
                 MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool HayErrores()

@@ -29,7 +29,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("Error al Guardar");
             }
             return paso;
         }
@@ -49,7 +49,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran vehiculos registrados en el ID seleccionado");
             }
             return paso;
         }
@@ -74,7 +74,7 @@ namespace SegundoParcial.BLL
             catch (Exception)
             {
 
-                MessageBox.Show("No se encuentran vehiculos registrados");
+                MessageBox.Show("No se encuentran vehiculos registrados en el ID seleccionado");
             }
             return paso;
         }

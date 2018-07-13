@@ -27,7 +27,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentras mantenimientos registrados");
+                MessageBox.Show("Error al guardar");
             }
             return paso;
         }
@@ -54,7 +54,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentras detalles de mantenimiento registrados");
+                MessageBox.Show("No se encuentras detalles de mantenimiento registrados en el ID seleccionado");
             }
             return paso;
         }
@@ -78,7 +78,7 @@ namespace SegundoParcial.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentras mantenimientos registrados");
+                MessageBox.Show("No se encuentras mantenimientos registrados en el ID seleccionado");
             }
             return paso;
         }
@@ -103,7 +103,7 @@ namespace SegundoParcial.BLL
             catch (Exception)
             {
 
-                MessageBox.Show("No se encuentras detalles de mantenimiento registrados");
+                MessageBox.Show("No se encuentras detalles de mantenimiento registrados en el ID Seleccionado");
             }
             return mantenimientoDetalle;
         }
