@@ -168,7 +168,7 @@ namespace SegundoParcial.UI.Registro
 
             ItbisnumericUpDown.Value = TotalnumericUpDown.Value * IteB;
 
-            SubTotalnumericUpDown.Value = SubTotalnumericUpDown.Value - ItbisnumericUpDown.Value;
+            SubTotalnumericUpDown.Value = TotalnumericUpDown.Value - ItbisnumericUpDown.Value;
 
 
             
