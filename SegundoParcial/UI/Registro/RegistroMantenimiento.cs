@@ -375,6 +375,9 @@ namespace SegundoParcial.UI.Registro
                 Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
                 v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
                 BLL.VehiculosBLL.Modificar(v);
+                Articulos b = (Articulos)ArticulocomboBox.SelectedItem;
+                b.Inventario -= (int)CantidadnumericUpDown.Value;
+                BLL.ArticulosBLL.Modificar(b);
 
             }
             else
@@ -434,6 +437,9 @@ namespace SegundoParcial.UI.Registro
                 Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
                 a.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
                 BLL.VehiculosBLL.Modificar(a);
+                Articulos b = (Articulos)ArticulocomboBox.SelectedItem;
+                b.Inventario += (int)CantidadnumericUpDown.Value;
+                BLL.ArticulosBLL.Modificar(b);
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
