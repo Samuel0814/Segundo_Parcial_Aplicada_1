@@ -431,15 +431,18 @@ namespace SegundoParcial.UI.Registro
         private void Eliminarbutton_Click_1(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
+            
 
             if (BLL.MantenimientosBLL.Eliminar(id))
             {
                 Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
                 a.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
                 BLL.VehiculosBLL.Modificar(a);
-                Articulos b = (Articulos)ArticulocomboBox.SelectedItem;
-                b.Inventario += (int)CantidadnumericUpDown.Value;
-                BLL.ArticulosBLL.Modificar(b);
+
+                Articulos v = (Articulos)ArticulocomboBox.SelectedItem;
+                v.Inventario += (float)CantidadnumericUpDown.Value;
+                BLL.ArticulosBLL.Modificar(v);
+
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
