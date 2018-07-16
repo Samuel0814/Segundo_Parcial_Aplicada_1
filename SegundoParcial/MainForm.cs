@@ -85,7 +85,7 @@ namespace SegundoParcial
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

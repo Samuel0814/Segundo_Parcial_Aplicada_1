@@ -340,6 +340,7 @@ namespace SegundoParcial.UI.Registro
         {
             MantenimientoIdnumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
+            CantidadnumericUpDown.Value = 0;
             PrecionumericUpDown.Value = 0;
             ImportenumericUpDown.Value = 0; ;
             TotalnumericUpDown.Value = 0;
@@ -488,7 +489,23 @@ namespace SegundoParcial.UI.Registro
 
         }
 
-        
+        private void RegistroMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (CantidadnumericUpDown.Value != 0 && TotalnumericUpDown.Value != 0)
+            { 
+                if (MessageBox.Show("¿Seguro que desea salir del Registro de Mantenimientos sin guardar?",
+                           "Consulta",
+                           MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                {
+                    e.Cancel = true; //Cancela el cerrado del formulario
+                }
+            }
+            else
+            {
+                e.Cancel = false; 
+            }
+        }
     }
 }
         

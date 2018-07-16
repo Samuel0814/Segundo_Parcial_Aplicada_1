@@ -440,6 +440,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RegistroMantenimiento";
             this.Text = "Registro de Mantenimiento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegistroMantenimiento_FormClosing);
             this.Load += new System.EventHandler(this.RegistroMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
