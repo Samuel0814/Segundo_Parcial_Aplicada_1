@@ -70,7 +70,7 @@ namespace SegundoParcial.UI.Registro
 
         private Mantenimiento LlenaClase()
         {
-            Mantenimiento mantenimiento = new Mantenimiento();
+           
 
             mantenimiento.MantenimientoID = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
             mantenimiento.Fecha = FechadateTimePicker.Value;
@@ -78,18 +78,17 @@ namespace SegundoParcial.UI.Registro
             mantenimiento.Total =Convert.ToSingle( TotalnumericUpDown.Value);
             mantenimiento.SubTotal = Convert.ToSingle(SubTotalnumericUpDown.Value);
             mantenimiento.Itbis = Convert.ToSingle(ItbisnumericUpDown.Value);
-            foreach (DataGridViewRow item in DetalledataGridView.Rows)
+            foreach (var item in mantenimiento.Detalle.ToList())
             {
-                mantenimiento.AgregarDetalle(
-                    ToInt(item.Cells["ID"].Value),
-                    ToInt(item.Cells["MantenimientoId"].Value),
-                    ToInt(item.Cells["VehiculosId"].Value),
-                    ToInt(item.Cells["TalleresId"].Value),
-                    ToInt(item.Cells["ArticulosID"].Value), 
-                    "NombreArticulo",
-                    ToInt(item.Cells["Cantidad"].Value),
-                    ToInt(item.Cells["Precio"].Value),
-                    ToInt(item.Cells["Importe"].Value)
+                mantenimiento.AgregarDetalle(item.ID,
+                   item.MantenimientoId,
+                    item.VehiculosId,
+                    item.TalleresId,
+                   item.ArticulosID,
+                   
+                    "NombreArticulo",item.Cantidad,
+                    item.Precio,
+                   item.Importe
                 );
             }
 

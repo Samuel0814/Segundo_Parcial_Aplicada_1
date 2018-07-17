@@ -26,10 +26,7 @@ namespace SegundoParcial.BLL
                     foreach (var item in mantenimiento.Detalle)
                     {
                         var articulo = contexto.articulos.Find(item.ArticulosID);
-                        if(articulo.Inventario<item.Cantidad)
-                        {
-                            return false;
-                        }
+                       
                         articulo.Inventario -= item.Cantidad;
                         var vehiculo = contexto.Vehiculos.Find(item.VehiculosId);
                         vehiculo.TotalMantenimiento =Convert.ToInt32( item.Importe);
