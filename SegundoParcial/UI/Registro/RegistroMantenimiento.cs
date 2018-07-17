@@ -247,14 +247,6 @@ namespace SegundoParcial.UI.Registro
                 HayErrores = true;
             }
 
-
-            if (CantidadnumericUpDown.Value == 0)
-            {
-                MyerrorProvider.SetError(CantidadnumericUpDown,
-                    "Digite una cantidad");
-                HayErrores = true;
-            }
-
             return HayErrores;
         }
 
