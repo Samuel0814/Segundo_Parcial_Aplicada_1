@@ -22,7 +22,7 @@ namespace SegundoParcial.Entidades
 
         public string NombreArticulo { get; set; }
 
-        public float Cantidad { get; set; }
+        public int Cantidad { get; set; }
 
         public float Precio { get; set; }
 
@@ -51,7 +51,7 @@ namespace SegundoParcial.Entidades
             this.Importe = 0;
         }
 
-        public MantenimientoDetalle( int id, int mantenimientoId , int ArticuloId ,int talleresId, int vehiculoId, string nombreArticulo, float cantidad, float precio, float importe)
+        public MantenimientoDetalle( int id, int mantenimientoId , int ArticuloId ,int talleresId, int vehiculoId, string nombreArticulo, int cantidad, float precio, float importe)
         {
             ID = id;
             MantenimientoId = mantenimientoId;

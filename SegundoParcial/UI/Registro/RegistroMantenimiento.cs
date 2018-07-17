@@ -14,12 +14,13 @@ namespace SegundoParcial.UI.Registro
     public partial class RegistroMantenimiento : Form
     {
 
-
+        public Mantenimiento mantenimiento { get; set; }
         public RegistroMantenimiento()
         {
             InitializeComponent();
             LlenarComboBox();
             Fecha();
+            mantenimiento = new Mantenimiento();
         }
 
         private void Fecha ()
@@ -84,7 +85,8 @@ namespace SegundoParcial.UI.Registro
                     ToInt(item.Cells["MantenimientoId"].Value),
                     ToInt(item.Cells["VehiculosId"].Value),
                     ToInt(item.Cells["TalleresId"].Value),
-                    ToInt(item.Cells["ArticulosID"].Value), "NombreArticulo",
+                    ToInt(item.Cells["ArticulosID"].Value), 
+                    "NombreArticulo",
                     ToInt(item.Cells["Cantidad"].Value),
                     ToInt(item.Cells["Precio"].Value),
                     ToInt(item.Cells["Importe"].Value)
@@ -149,7 +151,7 @@ namespace SegundoParcial.UI.Registro
 
         private void RestandoTotal()
         {
-            List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
+           // List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
 
             float Total = 0;
             decimal IteB;
@@ -157,7 +159,7 @@ namespace SegundoParcial.UI.Registro
             IteB = 0.18M;
 
 
-            foreach (var item in detalle)
+            foreach (var item in mantenimiento.Detalle)
             {
                 Total -= item.Importe;
             }
@@ -260,7 +262,7 @@ namespace SegundoParcial.UI.Registro
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(MantenimientoIdnumericUpDown.Value);
-            Mantenimiento mantenimiento = BLL.MantenimientosBLL.Buscar(id);
+           mantenimiento = BLL.MantenimientosBLL.Buscar(id);
 
             if (mantenimiento != null)
             {
@@ -286,31 +288,32 @@ namespace SegundoParcial.UI.Registro
                 return;
             }
 
-            List<MantenimientoDetalle> detalle = new List<MantenimientoDetalle>();
+            //List<MantenimientoDetalle> detalle = new List<MantenimientoDetalle>();
 
-            if (DetalledataGridView.DataSource != null)
-            {
-                detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
-            }
-
-            detalle.Add(
-                new MantenimientoDetalle(
+            //if (DetalledataGridView.DataSource != null)
+            //{
+            //   mantenimiento.Detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
+            //}
+            MantenimientoDetalle detalle1 = new MantenimientoDetalle(
                     id: 0,
                     mantenimientoId: (int)MantenimientoIdnumericUpDown.Value,
                     ArticuloId: (int)ArticulocomboBox.SelectedValue,
                     talleresId: (int)TallercomboBox.SelectedValue,
                     vehiculoId: (int)VehiculocomboBox.SelectedValue,
                     nombreArticulo: ArticulocomboBox.Text,
-                    cantidad: (float)Convert.ToInt32(CantidadnumericUpDown.Value),
+                    cantidad: Convert.ToInt32(CantidadnumericUpDown.Value),
                     precio: (float)Convert.ToInt32(PrecionumericUpDown.Text),
                     importe: (float)Convert.ToInt32(ImportenumericUpDown.Text)
-                ));
+                );
+            AgregarDetalle(
+                detalle1
+               );
 
             
             DetalledataGridView.DataSource = null;
            
 
-            DetalledataGridView.DataSource = detalle;
+            DetalledataGridView.DataSource = mantenimiento.Detalle;
 
             
 
@@ -318,22 +321,48 @@ namespace SegundoParcial.UI.Registro
             Total();
         }
 
+        private void AgregarDetalle(MantenimientoDetalle mantenimientoDetalle)
+        {
+            foreach (var item in mantenimiento.Detalle)
+            {
+                if(item.ArticulosID == mantenimientoDetalle.ArticulosID)
+                {
+                    item.Cantidad += mantenimientoDetalle.Cantidad;
+                    item.Importe = item.Precio * item.Cantidad;
+                    return;
+                }
+
+            }
+
+            mantenimiento.Detalle.Add(mantenimientoDetalle);
+            
+
+        }
+
         private void Removerbutton_Click(object sender, EventArgs e)
         {
-            if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
+            if (DetalledataGridView.SelectedRows.Count>0)
             {
+                 if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
+                {
 
-                List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
+                    //List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
 
 
-                detalle.RemoveAt(DetalledataGridView.CurrentRow.Index);
+                    BLL.MantenimientosBLL.removerDetalle(mantenimiento,(int) DetalledataGridView.SelectedRows[0].Cells[0].Value) ;
 
 
-                DetalledataGridView.DataSource = null;
-                DetalledataGridView.DataSource = detalle;
+                    DetalledataGridView.DataSource = null;
+                    DetalledataGridView.DataSource = mantenimiento.Detalle.ToList();
 
-                RestandoTotal();
+                    RestandoTotal();
+                }
             }
+            else
+            {
+                MessageBox.Show("No hay registro seleccionado");
+            }
+           
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -348,11 +377,12 @@ namespace SegundoParcial.UI.Registro
             SubTotalnumericUpDown.Value = 0;
             ItbisnumericUpDown.Value = 0;
             MyerrorProvider.Clear();
+            mantenimiento.Detalle.Clear();
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            Mantenimiento mantenimientos;
+            
            
            
 
@@ -366,35 +396,37 @@ namespace SegundoParcial.UI.Registro
             }
 
 
-            mantenimientos = LlenaClase();
+            mantenimiento = LlenaClase();
 
             if (MantenimientoIdnumericUpDown.Value == 0)
             {
+                mantenimiento = LlenaClase();
 
-                Paso = BLL.MantenimientosBLL.Guardar(mantenimientos);
-                Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
-                v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
-                BLL.VehiculosBLL.Modificar(v);
-                Articulos b = (Articulos)ArticulocomboBox.SelectedItem;
-                b.Inventario -= (int)CantidadnumericUpDown.Value;
-                BLL.ArticulosBLL.Modificar(b);
+                Paso = BLL.MantenimientosBLL.Guardar(mantenimiento);
+                //Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
+                //v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                //BLL.VehiculosBLL.Modificar(v);
+                //Articulos b = (Articulos)ArticulocomboBox.SelectedItem;
+                //b.Inventario -= (int)CantidadnumericUpDown.Value;
+                //BLL.ArticulosBLL.Modificar(b);
 
             }
             else
             {
-                Paso = BLL.MantenimientosBLL.Modificar(mantenimientos);
-                Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
+                mantenimiento = LlenaClase();
+                Paso = BLL.MantenimientosBLL.Modificar(mantenimiento);
+                //Vehiculos v = (Vehiculos)VehiculocomboBox.SelectedItem;
 
-                if (TotalnumericUpDown.Value <= TotalnumericUpDown.Value)
-                {
-                    v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
-                }
-                else
-                {
-                    v.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
-                }
-                BLL.VehiculosBLL.Modificar(v);
-                ModificarCantidadInventario(mantenimientos);
+                //if (TotalnumericUpDown.Value <= TotalnumericUpDown.Value)
+                //{
+                //    v.TotalMantenimiento += (int)TotalnumericUpDown.Value;
+                //}
+                //else
+                //{
+                //    v.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
+                //}
+                //BLL.VehiculosBLL.Modificar(v);
+                //ModificarCantidadInventario(mantenimientos);
             }
 
             if (Paso)
@@ -408,25 +440,25 @@ namespace SegundoParcial.UI.Registro
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ModificarCantidadInventario(Mantenimiento mantenimiento)
-        { 
+        //private void ModificarCantidadInventario(Mantenimiento mantenimiento)
+        //{ 
 
-            Contexto db = new Contexto();
-            float  sum = 0;
-            int sumTotal = 0;
-            var detalles = mantenimiento.Detalle.ToList();
+        //    Contexto db = new Contexto();
+        //    float  sum = 0;
+        //    int sumTotal = 0;
+        //    var detalles = mantenimiento.Detalle.ToList();
             
-            foreach (var item in detalles)
-            {
-                sum += item.Cantidad;
-                sumTotal+=Convert.ToInt32( item.Importe);
+        //    foreach (var item in detalles)
+        //    {
+        //        sum += item.Cantidad;
+        //        sumTotal+=Convert.ToInt32( item.Importe);
 
-            }
-            db.articulos.Find(detalles.First().ArticulosID).Inventario -= sum;
-            db.Vehiculos.Find(detalles.First().VehiculosId).TotalMantenimiento = int.Parse(sumTotal.ToString());
-            db.SaveChanges();
+        //    }
+        //    db.articulos.Find(detalles.First().ArticulosID).Inventario -= sum;
+        //    db.Vehiculos.Find(detalles.First().VehiculosId).TotalMantenimiento = int.Parse(sumTotal.ToString());
+        //    db.SaveChanges();
 
-        }
+        //}
 
         private void Eliminarbutton_Click_1(object sender, EventArgs e)
         {
@@ -435,13 +467,13 @@ namespace SegundoParcial.UI.Registro
 
             if (BLL.MantenimientosBLL.Eliminar(id))
             {
-                Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
-                a.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
-                BLL.VehiculosBLL.Modificar(a);
+                //Vehiculos a = (Vehiculos)VehiculocomboBox.SelectedItem;
+                //a.TotalMantenimiento -= (int)TotalnumericUpDown.Value;
+                //BLL.VehiculosBLL.Modificar(a);
 
-                Articulos v = (Articulos)ArticulocomboBox.SelectedItem;
-                v.Inventario += (float)CantidadnumericUpDown.Value;
-                BLL.ArticulosBLL.Modificar(v);
+                //Articulos v = (Articulos)ArticulocomboBox.SelectedItem;
+                //v.Inventario += (float)CantidadnumericUpDown.Value;
+                //BLL.ArticulosBLL.Modificar(v);
 
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

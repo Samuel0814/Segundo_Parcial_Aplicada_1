@@ -13,9 +13,9 @@ namespace SegundoParcial.Entidades
 
         public string Descripcion { get; set; }
 
-        public int TotalMantenimiento { get; set; }
+        public float TotalMantenimiento { get; set; }
 
-        public Vehiculos(int articuloID, int CostoMantenimiento)
+        public Vehiculos(int articuloID, float CostoMantenimiento)
         {
             this.VehiculoID = VehiculoID;
             this.Descripcion = Descripcion;

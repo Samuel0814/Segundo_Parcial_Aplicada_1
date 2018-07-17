@@ -20,7 +20,7 @@ namespace SegundoParcial.Entidades
 
         public float PorcientoGanancia { get; set; }
 
-        public float Inventario { get; set; }
+        public int Inventario { get; set; }
 
 
         public Articulos()

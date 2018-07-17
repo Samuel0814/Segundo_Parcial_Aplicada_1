@@ -84,27 +84,27 @@ namespace SegundoParcial.UI.Registro
             {
                 Paso = BLL.EntradaArticulosBLL.Guardar(entrada);
 
-                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
-                a.Inventario += (float)CantidadnumericUpDown.Value;
-                BLL.ArticulosBLL.Modificar(a);
+                //Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
+                //a.Inventario += (float)CantidadnumericUpDown.Value;
+                //BLL.ArticulosBLL.Modificar(a);
                 
             }
             else
             {
                 Paso = BLL.EntradaArticulosBLL.Modificar(entrada);
 
-                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
+                //Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
 
-                if (CantidadnumericUpDown.Value <= CantidadnumericUpDown.Value)
+                /*if (CantidadnumericUpDown.Value <= CantidadnumericUpDown.Value)
                 {
                     a.Inventario += (float)CantidadnumericUpDown.Value;
                 }
                 else
                 {
                     a.Inventario -= (float)CantidadnumericUpDown.Value;
-                }
-                BLL.ArticulosBLL.Modificar(a);
-                ModificarCantidadInvitario(a.ArticulosId);
+                }*/
+                //BLL.ArticulosBLL.Modificar(a);
+               // ModificarCantidadInvitario(a.ArticulosId);
             }
 
             if (Paso)
@@ -115,7 +115,7 @@ namespace SegundoParcial.UI.Registro
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ModificarCantidadInvitario(int articulosId)
+        /*private void ModificarCantidadInvitario(int articulosId)
         {
             Contexto db = new Contexto();
             int sum=0;
@@ -123,7 +123,7 @@ namespace SegundoParcial.UI.Registro
              * es lo mismo que un select de sql 
              * ejemplo
              * select * from entradaaArticulo where ArticuloId= articuloid
-              */
+              
             var entradas = from cust in db.entradaArticulos
                            where cust.ArticulosId == articulosId
                            select cust;
@@ -137,7 +137,7 @@ namespace SegundoParcial.UI.Registro
             db.articulos.Find(articulosId).Inventario = sum;
             db.SaveChanges();
 
-        }
+        }*/
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
@@ -145,9 +145,9 @@ namespace SegundoParcial.UI.Registro
 
             if (BLL.EntradaArticulosBLL.Eliminar(id))
             {
-                Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
-                a.Inventario -= (float)CantidadnumericUpDown.Value;
-                BLL.ArticulosBLL.Modificar(a);
+                //Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
+                //a.Inventario -= (float)CantidadnumericUpDown.Value;
+                //BLL.ArticulosBLL.Modificar(a);
                 MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

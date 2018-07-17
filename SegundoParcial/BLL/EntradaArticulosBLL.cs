@@ -21,6 +21,9 @@ namespace SegundoParcial.BLL
 
                 if (contexto.entradaArticulos.Add(Entrada) != null)
                 {
+                    Articulos Articulo = contexto.articulos.Find(Entrada.ArticulosId);
+                    Articulo.Inventario += Entrada.CantidadArticulo;
+
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -41,7 +44,25 @@ namespace SegundoParcial.BLL
             Contexto contexto = new Contexto();
             try
             {
+
+
+
                 contexto.Entry(Entrada).State = EntityState.Modified;
+
+                Articulos a = new Articulos();
+                EntradaArticulos b = new EntradaArticulos();
+
+                if (b.CantidadArticulo <= b.CantidadArticulo)
+                {
+                    a.Inventario += b.CantidadArticulo;
+                }
+                else
+                {
+                    a.Inventario -= b.CantidadArticulo;
+                }
+                BLL.ArticulosBLL.Modificar(a);
+                ModificarCantidadInvitario(a.ArticulosId);
+
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -57,6 +78,31 @@ namespace SegundoParcial.BLL
             ;
             return paso;
         }
+
+        public static void  ModificarCantidadInvitario(int articulosId)
+        {
+            Contexto db = new Contexto();
+            int sum = 0;
+            /*usando linq 
+             * es lo mismo que un select de sql 
+             * ejemplo
+             * select * from entradaaArticulo where ArticuloId= articuloid
+              */
+            var entradas = from cust in db.entradaArticulos
+                           where cust.ArticulosId == articulosId
+                           select cust;
+
+            foreach (var item in entradas)
+            {
+                sum += item.CantidadArticulo;
+
+            }
+
+            db.articulos.Find(articulosId).Inventario = sum;
+            db.SaveChanges();
+
+        }
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -65,6 +111,11 @@ namespace SegundoParcial.BLL
             try
             {
                 EntradaArticulos Entrada = contexto.entradaArticulos.Find(id);
+
+
+                Articulos Articulo = contexto.articulos.Find(Entrada.ArticulosId);
+                Articulo.Inventario -= Entrada.CantidadArticulo;
+
 
                 contexto.entradaArticulos.Remove(Entrada);
 
