@@ -12,7 +12,6 @@ namespace SegundoParcial.BLL
 {
     public class MantenimientosBLL
     {
-
        
         public static bool Guardar(Mantenimiento mantenimiento)
         {
