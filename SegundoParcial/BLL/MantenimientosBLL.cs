@@ -26,10 +26,9 @@ namespace SegundoParcial.BLL
                     foreach (var item in mantenimiento.Detalle)
                     {
                         var articulo = contexto.articulos.Find(item.ArticulosID);
-                       
                         articulo.Inventario -= item.Cantidad;
                         var vehiculo = contexto.Vehiculos.Find(item.VehiculosId);
-                        vehiculo.TotalMantenimiento =Convert.ToInt32( item.Importe);
+                        vehiculo.TotalMantenimiento += Convert.ToInt32( item.Importe);
 
                     }
                     contexto.SaveChanges();
@@ -58,7 +57,6 @@ namespace SegundoParcial.BLL
                     contexto.Entry(item).State = estado;
 
                     //TODO:
-                   // BLL.EntradaArticulosBLL.ModificarCantidadInvitario(item.ArticulosID);
                     sum += item.Cantidad;
                     sumTotal += Convert.ToInt32(item.Importe);
                     contexto.articulos.Find(item.ArticulosID).Inventario -= sum;

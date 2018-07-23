@@ -78,19 +78,19 @@ namespace SegundoParcial.UI.Registro
             mantenimiento.Total =Convert.ToSingle( TotalnumericUpDown.Value);
             mantenimiento.SubTotal = Convert.ToSingle(SubTotalnumericUpDown.Value);
             mantenimiento.Itbis = Convert.ToSingle(ItbisnumericUpDown.Value);
-            foreach (var item in mantenimiento.Detalle.ToList())
-            {
-                mantenimiento.AgregarDetalle(item.ID,
-                   item.MantenimientoId,
-                    item.VehiculosId,
-                    item.TalleresId,
-                   item.ArticulosID,
+            //foreach (var item in mantenimiento.Detalle.ToList())
+            //{
+            //    mantenimiento.AgregarDetalle(item.ID,
+            //       item.MantenimientoId,
+            //        item.VehiculosId,
+            //        item.TalleresId,
+            //       item.ArticulosID,
                    
-                    "NombreArticulo",item.Cantidad,
-                    item.Precio,
-                   item.Importe
-                );
-            }
+            //        "NombreArticulo",item.Cantidad,
+            //        item.Precio,
+            //       item.Importe
+            //    );
+            //}
 
             
 
