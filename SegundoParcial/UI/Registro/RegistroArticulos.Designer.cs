@@ -75,9 +75,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(193, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 13;
-            this.label5.Text = "% Ganancia";
+            this.label5.Text = "Ganancia";
             // 
             // ArticuloIdnumericUpDown
             // 

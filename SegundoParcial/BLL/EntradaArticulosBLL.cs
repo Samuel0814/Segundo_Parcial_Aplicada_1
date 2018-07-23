@@ -37,31 +37,24 @@ namespace SegundoParcial.BLL
             return paso;
         }
 
-        public static bool Modificar(EntradaArticulos Entrada)
+        public static bool Modificar(EntradaArticulos Entrada , EntradaArticulos EntradaAnterior)
         {
             bool paso = false;
 
             Contexto contexto = new Contexto();
             try
             {
-
-
+         
+                EntradaArticulos entrada = BLL.EntradaArticulosBLL.Buscar(Entrada.EntradaID);
 
                 contexto.Entry(Entrada).State = EntityState.Modified;
 
-                Articulos a = new Articulos();
-                EntradaArticulos b = new EntradaArticulos();
+                Articulos articulo = contexto.articulos.Find(Entrada.ArticulosId);
+                Articulos ArticuloAnterior = contexto.articulos.Find(EntradaAnterior.ArticulosId);
+                articulo.Inventario += Entrada.CantidadArticulo;
+                ArticuloAnterior.Inventario -= EntradaAnterior.CantidadArticulo;
 
-                if (b.CantidadArticulo <= b.CantidadArticulo)
-                {
-                    a.Inventario += b.CantidadArticulo;
-                }
-                else
-                {
-                    a.Inventario -= b.CantidadArticulo;
-                }
-                BLL.ArticulosBLL.Modificar(a);
-                ModificarCantidadInvitario(a.ArticulosId);
+                contexto.Entry(articulo).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -79,29 +72,6 @@ namespace SegundoParcial.BLL
             return paso;
         }
 
-        public static void  ModificarCantidadInvitario(int articulosId)
-        {
-            Contexto db = new Contexto();
-            int sum = 0;
-            /*usando linq 
-             * es lo mismo que un select de sql 
-             * ejemplo
-             * select * from entradaaArticulo where ArticuloId= articuloid
-              */
-            var entradas = from cust in db.entradaArticulos
-                           where cust.ArticulosId == articulosId
-                           select cust;
-
-            foreach (var item in entradas)
-            {
-                sum += item.CantidadArticulo;
-
-            }
-
-            db.articulos.Find(articulosId).Inventario = sum;
-            db.SaveChanges();
-
-        }
 
         public static bool Eliminar(int id)
         {

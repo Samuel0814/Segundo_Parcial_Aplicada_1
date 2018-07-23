@@ -78,33 +78,21 @@ namespace SegundoParcial.UI.Registro
                 return;
             }
 
+            int id = (int)EntradaIdnumericUpDown.Value;
+            EntradaArticulos EntradaAnterior = BLL.EntradaArticulosBLL.Buscar(id);
             entrada = LlenaClase();
+            
 
             if (EntradaIdnumericUpDown.Value == 0)
             {
                 Paso = BLL.EntradaArticulosBLL.Guardar(entrada);
-
-                //Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
-                //a.Inventario += (float)CantidadnumericUpDown.Value;
-                //BLL.ArticulosBLL.Modificar(a);
                 
             }
             else
             {
-                Paso = BLL.EntradaArticulosBLL.Modificar(entrada);
+                
+                Paso = BLL.EntradaArticulosBLL.Modificar(entrada, EntradaAnterior);
 
-                //Articulos a = (Articulos)ArticulocomboBox.SelectedItem;
-
-                /*if (CantidadnumericUpDown.Value <= CantidadnumericUpDown.Value)
-                {
-                    a.Inventario += (float)CantidadnumericUpDown.Value;
-                }
-                else
-                {
-                    a.Inventario -= (float)CantidadnumericUpDown.Value;
-                }*/
-                //BLL.ArticulosBLL.Modificar(a);
-               // ModificarCantidadInvitario(a.ArticulosId);
             }
 
             if (Paso)
@@ -115,29 +103,7 @@ namespace SegundoParcial.UI.Registro
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        /*private void ModificarCantidadInvitario(int articulosId)
-        {
-            Contexto db = new Contexto();
-            int sum=0;
-            /*usando linq 
-             * es lo mismo que un select de sql 
-             * ejemplo
-             * select * from entradaaArticulo where ArticuloId= articuloid
-              
-            var entradas = from cust in db.entradaArticulos
-                           where cust.ArticulosId == articulosId
-                           select cust;
-
-            foreach (var item in entradas)
-            {
-                sum += item.CantidadArticulo;
-
-            }
-
-            db.articulos.Find(articulosId).Inventario = sum;
-            db.SaveChanges();
-
-        }*/
+        
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
