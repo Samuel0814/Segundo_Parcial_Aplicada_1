@@ -48,6 +48,7 @@ namespace SegundoParcial.UI.Registro
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(VehiculoIDnumericUpDown.Value);
+
             Vehiculos vehiculos = BLL.VehiculosBLL.Buscar(id);
 
             if (vehiculos != null)
@@ -55,6 +56,10 @@ namespace SegundoParcial.UI.Registro
                 DescripciontextBox.Text = vehiculos.Descripcion;
                 TotalMantenimientotextBox.Text = vehiculos.TotalMantenimiento.ToString();
             }
+            else
+                MessageBox.Show("No se encontro!", "Fallo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
