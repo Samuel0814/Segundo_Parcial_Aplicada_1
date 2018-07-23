@@ -279,12 +279,7 @@ namespace SegundoParcial.UI.Registro
                 return;
             }
 
-            //List<MantenimientoDetalle> detalle = new List<MantenimientoDetalle>();
-
-            //if (DetalledataGridView.DataSource != null)
-            //{
-            //   mantenimiento.Detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
-            //}
+            
             MantenimientoDetalle detalle1 = new MantenimientoDetalle(
                     id: 0,
                     mantenimientoId: (int)MantenimientoIdnumericUpDown.Value,
