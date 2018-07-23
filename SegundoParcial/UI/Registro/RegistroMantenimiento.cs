@@ -332,28 +332,20 @@ namespace SegundoParcial.UI.Registro
 
         private void Removerbutton_Click(object sender, EventArgs e)
         {
-            if (DetalledataGridView.SelectedRows.Count>0)
+
+            if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
             {
-                 if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
-                {
 
-                    //List<MantenimientoDetalle> detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
+                List<MantenimientoDetalle> Detalle = (List<MantenimientoDetalle>)DetalledataGridView.DataSource;
 
 
-                    BLL.MantenimientosBLL.removerDetalle(mantenimiento,(int) DetalledataGridView.SelectedRows[0].Cells[0].Value) ;
+                Detalle.RemoveAt(DetalledataGridView.CurrentRow.Index);
 
+                DetalledataGridView.DataSource = null;
+                DetalledataGridView.DataSource = Detalle;
 
-                    DetalledataGridView.DataSource = null;
-                    DetalledataGridView.DataSource = mantenimiento.Detalle.ToList();
-
-                    RestandoTotal();
-                }
             }
-            else
-            {
-                MessageBox.Show("No hay registro seleccionado");
-            }
-           
+
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
