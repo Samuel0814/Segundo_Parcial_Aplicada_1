@@ -157,33 +157,5 @@ namespace SegundoParcial.BLL
             return mantenimientos;
         }
 
-        public static void removerDetalle( Mantenimiento mantenimiento,int id)
-        {
-            Contexto contexto = new Contexto();
-            var tmp = contexto.Mantenimientos.Find(mantenimiento.MantenimientoID);
-            if (tmp != null)
-            {
-                var item =( from detalle in tmp.Detalle
-                           where detalle.ID == id
-                           select detalle).First();
-
-                tmp.Detalle.Remove((MantenimientoDetalle)item);
-                contexto.articulos.Find(item.ArticulosID).Inventario += item.Cantidad;
-                mantenimiento= contexto.Mantenimientos.Find(mantenimiento.MantenimientoID);
-                contexto.SaveChanges();
-                
-            }
-            else
-            {
-                var item = (from detalle in mantenimiento.Detalle
-                           where detalle.ID == id
-                           select detalle).First();
-                mantenimiento.Detalle.Remove((MantenimientoDetalle)item);
-
-            }
-
-                      
-        }
-
     }
 }
